@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0.5rem
+}
+
+.main-product-page {
+    display: flex;
+    height: 90vh;
+}
+
+.filter-section {
+    border : "1px solid black";
+    background-color: lightpink;
+    width: 30%;
+}
+
+.product-section{
+    border : "1px solid black";
+    background-color: lightblue;
+    width: 70%;
+    display: flex;
+}

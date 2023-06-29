@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar-main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 63px;
+    background-color: rgb(90, 83, 83);
+
+  position: sticky;
+  top: 0;
+  
+}
+
+.search-bar {
+    border-radius: 8px;
+    border: none;
+}
+.leftside-navbar {
+    /* border: 2px solid red; */
+    padding: 1rem;
+    color: aliceblue;
+    font-family: cursive;
+}
+
+.center-navbar {
+    /* border: 2px solid blue; */
+    padding: 1rem;
+}
+
+
+.search-bar {
+    padding: 0.6rem;
+    width: 100%;
+}
+
+
+.icon-list-navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wishlist-navbar {
+    margin-inline: 0.7rem;
+}

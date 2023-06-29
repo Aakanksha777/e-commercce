@@ -1,0 +1,11 @@
+.footer-main-container {
+    background-color: rgb(90, 83, 83);
+    color: aliceblue;
+    font-size: large;
+    font-style: italic;
+    font-family: cursive;
+    padding: 1rem;
+
+    position: sticky;
+    bottom: 0;
+}

@@ -1,0 +1,18 @@
+.product-card-main {
+    /* background-color: blue; */
+    /* border: 1px solid gray; */
+    margin: 20px;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+   
+}
+
+.product-card-img {
+    height: 22vh;
+}
+
+.product-card-text {
+ font-family: cursive;
+ font-style: italic;
+ color: rgb(90, 83, 83);
+}
