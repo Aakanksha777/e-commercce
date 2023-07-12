@@ -1,14 +1,23 @@
 import React from 'react'
 import './ProductCard.css'
+import {Link} from 'react-router-dom';
 
-const ProductCard = ({PosterImage, category}) => {
+const ProductCard = ({db, img}) => {
+
   return (
     <div className='product-card-main'>
-      <img src={PosterImage} alt='product' className='product-card-img'/>
-      <h4 className='product-card-text'>{category}</h4>
-      {/* <div className='product-image'>product-image</div>
-      <div className='product-description'>product-description</div>
-      <div className='product-price'>product-price</div> */}
+      {db.map(({_id, categoryName, description}) => (
+        <div 
+        key= {_id} 
+        className='single-card'
+        >
+          <h2>{categoryName}</h2>
+          <img src={img} alt="category"/>
+          <p>{description}</p>
+
+          <Link to='/product'>View More</Link>
+        </div>
+      ))}
     </div>
   )
 }

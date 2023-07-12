@@ -1,30 +1,76 @@
 import { v4 as uuid } from "uuid";
 
-/**
- * Product Database can be added here.
- * You can add products of your wish with different attributes
- * */
-
 export const products = [
-  {
-    _id: uuid(),
-    title: "You Can WIN",
-    author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
-  },
-  {
-    _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
-  },
-  {
-    _id: uuid(),
-    title: "Think and Grow Rich",
-    author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
-  },
+ 
+    {
+      _id : uuid(),
+      productname : "jacket",
+      price : "2000",
+      type : "women",
+      rating : 5
+    },
+    {
+      _id : uuid(),
+      productname : "jacket",
+      price : "2000",
+      type : "women",
+      rating : 5
+
+    },
+    {
+      _id : uuid(),
+      productname : "jacket",
+      price : "2000",
+      type : "women",
+      rating : 4
+
+    },
+    {
+      _id : uuid(),
+      productname : "jacket",
+      price : "2000",
+      type : "women",
+      rating : 4
+
+    },
+    {
+      _id : uuid(),
+      productname : "tshirt",
+      price : "2600",
+      type : "men",
+      rating : 4
+
+    },
+    {
+      _id : uuid(),
+      productname : "tshirt",
+      price : "2600",
+      type : "men",
+      rating : 3
+
+    },
+    {
+      _id : uuid(),
+      productname : "tshirt",
+      price : "2600",
+      type : "men",
+      rating : 3
+
+    },
+    {
+      _id : uuid(),
+      productname : "shoes",
+      price : "1800",
+      type : "kids",
+      rating : 2
+    },
+    {
+      _id : uuid(),
+      productname : "shoes",
+      price : "1800",
+      type : "kids",
+      rating : 2
+
+    }
+  
 ];

@@ -1,17 +1,19 @@
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
-import Landing from '../../components/Landing/Landing'
-import NewCollection from '../../components/NewCollection/NewCollection'
-// import Footer from '../../components/Footer/Footer'
+// import ProductCard from '../../components/ProductCard/ProductCard'
+// import {categories} from "../../backend/db/categories"
+// import Demo from '../../Assets/demoImage.png'
+import Category from '../../components/Category/index'
+
 
 const HeroPage = () => {
+
   return (
-    <div>
+    <div className='heropage-main-box'>
       <Navbar/>
-      <Landing/>
-      <NewCollection/>
-      {/* <Footer/> */}
-      
+      {/* <ProductCard db={categories} img={Demo}/> */}
+      <Category/>
+     
     </div>
   )
 }

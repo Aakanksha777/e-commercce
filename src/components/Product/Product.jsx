@@ -1,51 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Product.css'
+import { products } from '../../backend/db/products'
 import DemoImage from '../../Assets/demoImage.png'
 
-const allProducts = [
-  {
-    productImage : DemoImage,
-    productName : "Men Premium Jacket",
-    price : "INR 2000"
-  },
-  {
-    productImage : DemoImage,
-    productName : "Women Premium Jacket",
-    price : "INR 1800"
-  },
-  {
-    productImage : DemoImage,
-    productName : "Men Premium Jacket",
-    price : "INR 1650"
-  },
-  {
-    productImage : DemoImage,
-    productName : "Women Premium Jacket",
-    price : "INR 3500"
-  },
- 
-]
-
-
 const Product = () => {
+
+  const [showData , setShowData] = useState(products)
+
+  const handleShowProduct = () => {
+    const filterProduct =  products.filter((e) => e.categoryName === "fiction")
+    setShowData(filterProduct)
+    console.log("filterProduct...", filterProduct)
+  }
   return (
     <>
-    <div className="main-product-page-box">
+    <div className="main-product-page-box" onLoad={handleShowProduct}>
     <div className="all-product-page-box">
-      {allProducts.map(({productImage, productName, price}) => (
+      {showData.map(({_id, title, author, price, categoryName}) => (
         <>
-        <div className='product-main-container'>
+        <div className='product-main-container' key={_id}>
           <div className="product-image-box">
-          <img className='product-image2' src={productImage} alt="pic2"/>
+          <img className='product-image2' src={DemoImage} alt="pic2"/>
           </div>
 
          <div className='product-desc2'>
-             <h3 className='product-desc-header'>{productName}</h3>
-             <p>{price}</p>
+             <h3 className='product-desc-header'>{title}</h3>
+             <p> author : {author}</p>
+             <p> price : {price}</p>
+             <p> categoryName : {categoryName}</p>
+
          </div>
 
          <div className='product-btn2'>
              <button className='product-btn-text'>Add to cart</button>
+             <button className='product-btn-text'>Add to WishList</button>
          </div>
          </div>
         </>

@@ -10,7 +10,8 @@
     justify-content: space-between;
     align-items: center;
     height: 63px;
-    background-color: rgb(90, 83, 83);
+    background-color: skyblue;
+    
 
   position: sticky;
   top: 0;
@@ -24,7 +25,7 @@
 .leftside-navbar {
     /* border: 2px solid red; */
     padding: 1rem;
-    color: aliceblue;
+    color: darkblue;
     font-family: cursive;
 }
 
@@ -47,4 +48,8 @@
 
 .wishlist-navbar {
     margin-inline: 0.7rem;
+    /* border: 1px solid red; */
+    margin: 0.7rem;
+    padding: 0.7rem;
+    font-size: xx-large;
 }

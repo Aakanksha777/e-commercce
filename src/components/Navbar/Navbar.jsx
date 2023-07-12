@@ -1,10 +1,17 @@
 import React from 'react'
 import './Navbar.css'
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import { AiOutlineHeart } from 'react-icons/ai';
+import {AiOutlineShoppingCart} from 'react-icons/ai'
+import {AiOutlineHome} from 'react-icons/ai'
+import {AiOutlineSearch} from 'react-icons/ai';
+import {CgProfile} from 'react-icons/cg'
+
+
+import {Link} from 'react-router-dom';
+
 
 const Navbar = () => {
+
   return (
     <div className='navbar-main'>
 
@@ -16,14 +23,26 @@ const Navbar = () => {
       </div>
       <div className="rightside-navbar">
         <div className="icon-list-navbar">
+
             <div className='wishlist-navbar'>
-                <FavoriteIcon htmlColor='white'/>
+                <Link to="/"><AiOutlineHome/></Link>
             </div>
+
             <div className='wishlist-navbar'>
-                <ShoppingCartIcon htmlColor='white'/>
+                <Link to="/product"><AiOutlineSearch/></Link>
             </div>
+
             <div className='wishlist-navbar'>
-                <AccountCircleRoundedIcon htmlColor='white'/>
+                <Link to="/wishlist"><AiOutlineHeart/></Link>
+            </div>
+
+            <div className='wishlist-navbar'>
+            <Link to="/cart"><AiOutlineShoppingCart/></Link>
+            </div>
+
+
+            <div className='wishlist-navbar'>
+              <Link to='/login'><CgProfile/></Link>
             </div>
         </div>
       </div>

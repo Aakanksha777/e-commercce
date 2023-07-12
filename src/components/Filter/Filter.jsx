@@ -1,7 +1,6 @@
-import React from 'react'
 import './Filter.css'
 
-const Filter = () => {
+const Filter = ({filterItemsByCategory, ratingItems}) => {
   return (
     <div className='filter-container'>
       <div className='filter-headings-top'>
@@ -18,29 +17,29 @@ const Filter = () => {
       <h3 className='filter-headings'>Category</h3>
 
       <div className="filter-inputs">
-      <input type='checkbox'/>
-      <label>Men Clothing</label>
+      <input type='checkbox' onChange={filterItemsByCategory} value={"men"}/>
+      <label for="men" >Men Clothing</label>
       </div>
 
       <div className="filter-inputs">
-      <input type='checkbox'/>
-      <label>Women Clothing</label>
+      <input type='checkbox' onChange={filterItemsByCategory} value={"women"}/>
+      <label for="women">Women Clothing</label>
       </div>
 
       <h3 className='filter-headings'>Rating</h3>
 
       <div className="filter-inputs">
-      <input type='radio'/>
+      <input type='radio' onChange={ratingItems} value={5}/>
       <label>5 stars</label>
       </div>
 
       <div className="filter-inputs">
-      <input type='radio'/>
+      <input type='radio' onChange={ratingItems}/>
       <label>4 stars & above</label>
       </div>
 
       <div className="filter-inputs">
-      <input type='radio'/>
+      <input type='radio' onChange={ratingItems}/>
       <label>3 stars & above</label>
       </div>
 
