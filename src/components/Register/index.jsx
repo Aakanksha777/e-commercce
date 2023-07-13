@@ -37,7 +37,6 @@ const Index = (e) => {
   return (
     <div className="login">
       <h1 className="login-header">Signup for Trendy App</h1>
-
       <form className="loginBox" onSubmit={handleSubmit} style={{ display: "flex" }}>
         <input
           placeholder="Username"

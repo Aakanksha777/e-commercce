@@ -7,19 +7,25 @@ import HomePage from "./myPages/homePage/Index";
 import ProductListingPage from "./myPages/productListingPage/index";
 import WishListPage from "./myPages/wishlistPage/Index";
 import CartPage from "./myPages/cartPage/index";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RequiresAuth from "./myComponents/RequiresAuth";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   // AuthContext
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState({});
 
-  const toggleLogin = () => {
-    setIsLoggedIn(true);
+  const toggleLogin = (data) => {
+    setIsLoggedIn(data);
   };
+
+  useEffect(() => {
+    console.log(isLoggedIn);
+  }, [isLoggedIn]);
 
   return (
     <div className="App">
+      <Navbar />
       <Routes>
         <Route path="/" element={<RequiresAuth isLoggedIn={isLoggedIn} />}>
           <Route index element={<HomePage />} />

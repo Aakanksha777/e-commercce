@@ -5,13 +5,10 @@ import Navbar from '../Navbar/Navbar';
 
 export default function Login({ toggleLogin }) {
   const navigate = useNavigate();
-
   const [loginData, setLoginData] = useState({ email: "", password: "" })
-
   const handleLoginInput = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   }
-
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +23,7 @@ export default function Login({ toggleLogin }) {
       .then((data) => {
         if (data.foundUser) {
           localStorage.setItem('token', data.encodedToken)
-          toggleLogin();
+          toggleLogin(data.foundUser);
           navigate("/")
         }
         else {
@@ -35,12 +32,10 @@ export default function Login({ toggleLogin }) {
       })
   }
 
-  //REGISTER
   return (
     <>
-      <Navbar />
       <div className="login">
-        <h2 className="login-header">Trendy App</h2>
+        <h2 className="login-header">Sign In to your Account</h2>
         <form className="loginBox" onSubmit={handleLoginSubmit}>
           <input
             placeholder="Email"
@@ -51,7 +46,6 @@ export default function Login({ toggleLogin }) {
             onChange={handleLoginInput}
             value={loginData.email}
           />
-
           <input
             placeholder="Password"
             className="loginInput"
@@ -64,14 +58,11 @@ export default function Login({ toggleLogin }) {
           <button className="loginButton" type="submit">
             Log In
           </button>
-
-
           <span className="loginForgot">Forgot Password?</span>
           <a href="/register" className="loginRegisterButton">
             Create a New Account
           </a>
         </form>
-
       </div>
     </>
   );

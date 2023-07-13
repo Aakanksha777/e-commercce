@@ -5,8 +5,7 @@ import Navbar from '../../components/Navbar/Navbar'
 const Index = () => {
   return (
     <div>
-      <Navbar/>
-      <Wishlist/>
+      <Wishlist />
     </div>
   )
 }
