@@ -3,12 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 const Index = (e) => {
 
-  const [registerData, setRegisterData ] = useState({})
+  const [registerData, setRegisterData] = useState({ username: "", firstname: "", lastname: "", email: "", password: "", confirmPassword: "" })
   const navigate = useNavigate();
 
   const handleInputs = (e) => {
     e.preventDefault();
-    console.log("handleInputs..", e.target.value)
     setRegisterData({ ...registerData, [e.target.name]: e.target.value });
   }
 
@@ -16,31 +15,30 @@ const Index = (e) => {
 
     e.preventDefault();
     fetch("/api/auth/signup", {
-      method:"post",
-      headers:{
-        "content-type" : "application/json"
+      method: "post",
+      headers: {
+        "content-type": "application/json"
       },
-      body:JSON.stringify(registerData)
+      body: JSON.stringify(registerData)
     })
-    .then((res) => res.json())
-    .then((data) => {
-      localStorage.setItem("token", data.encodedToken);
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("look into this data", data)
+        localStorage.setItem("token", data.encodedToken);
         alert('User created successfully')
-        navigate("/login")
-        console.log(data)
-    })
+        navigate("/")
+      })
+      .catch((e) => {
+        alert("Found ERROR..", e)
+      })
 
-    .catch((e) => {
-        alert("Found ERROR..")
-    })
-    
   }
-   
+
   return (
     <div className="login">
       <h1 className="login-header">Signup for Trendy App</h1>
 
-      <form className="loginBox" onSubmit={handleSubmit} style={{display:"flex"}}>
+      <form className="loginBox" onSubmit={handleSubmit} style={{ display: "flex" }}>
         <input
           placeholder="Username"
           className="loginInput"
@@ -79,7 +77,7 @@ const Index = (e) => {
         <input
           placeholder="Password"
           className="loginInput"
-          type= "password"
+          type="password"
           name="password"
           value={registerData.password}
           onChange={handleInputs}
@@ -107,4 +105,3 @@ const Index = (e) => {
 }
 
 export default Index
-  

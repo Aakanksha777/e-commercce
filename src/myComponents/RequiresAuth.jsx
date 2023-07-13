@@ -1,8 +1,7 @@
-import React from 'react'
-// import { Navigate } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 
-const RequiresAuth = ({children,  isLoggedIn}) => {
-  return isLoggedIn ? children : null
+const RequiresAuth = ({ isLoggedIn }) => {
+  return isLoggedIn ? <Outlet /> : <Navigate to="/login" />
 }
 
 export default RequiresAuth
