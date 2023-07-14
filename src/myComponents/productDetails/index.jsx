@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { products } from "../../backend/db/products";
-import Demo from "../../Assets/demoImage.png";
 
 const ProductDetails = () => {
   const { id } = useParams();

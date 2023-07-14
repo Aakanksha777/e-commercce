@@ -14,16 +14,15 @@ const ProductList = ({ filteredProduct }) => {
       method: "post",
       headers: {
         authorization: encodedToken,
-        "content-type": "application/JSON",
+        "content-type": "application/json"
       },
       body: JSON.stringify({ product: item }),
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        setUser({ ...user, cart: res.cart });
       })
       .catch((err) => console.log(err));
-    setUser({ ...user, cart: [...user.cart, item] });
   };
 
   return (

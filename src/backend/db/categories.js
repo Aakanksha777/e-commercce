@@ -9,17 +9,21 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "electronics",
+    photos: [],
   },
   {
     _id: uuid(),
     categoryName: "women's clothing",
+    photos: [],
   },
   {
     _id: uuid(),
     categoryName: "men's clothing",
+    photos: [],
   },
   {
     _id: uuid(),
     categoryName: "jewelery",
+    photos: [],
   },
 ];

@@ -7,7 +7,7 @@ const CartPage = () => {
 
   const handleRemoveCart = (id) => {
     const updatedCart = user.cart.filter((item) => {
-      return item.id !== id;
+      return item._id !== id;
     });
     setUser({ ...user, cart: updatedCart });
   };
@@ -32,8 +32,8 @@ const CartPage = () => {
         <div className="cart-product-page">
           {user?.cart.length > 0 ? (
             user?.cart.map(
-              ({ id, image, productname, price, discount, quantity }) => (
-                <div key={id} className="cart-product-description">
+              ({ _id, image, productname, price, discount, quantity }) => (
+                <div key={_id} className="cart-product-description">
                   <img
                     className="cart-side-image"
                     src={image}
@@ -54,7 +54,7 @@ const CartPage = () => {
 
                   <div className="btn-box">
                     <button
-                      onClick={() => handleRemoveCart(id)}
+                      onClick={() => handleRemoveCart(_id)}
                       className="cart-btn1"
                     >
                       Remove From Cart{" "}
