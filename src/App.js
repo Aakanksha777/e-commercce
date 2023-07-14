@@ -4,7 +4,7 @@ import ProductDetails from "./myComponents/productDetails/";
 import Login from "./components/login";
 import Register from "./components/Register/index";
 import HomePage from "./myPages/homePage/Index";
-import ProductListingPage from "./myPages/productListingPage/index";
+import ProductListingPage from "./myPages/productListingPage";
 import WishListPage from "./myPages/wishlistPage/Index";
 import CartPage from "./myPages/cartPage/index";
 import { useEffect, useState } from "react";

@@ -4,19 +4,15 @@ import DemoImage from '../../Assets/demoImage.png'
 import { AuthContext } from "../../context/AuthContext"
 
 const CartPage = () => {
-  const { user } = useContext(AuthContext)
+  const { user, setUser } = useContext(AuthContext)
 
+  const handleRemoveCart = (id) => {
+    const updatedCart = user.cart.filter((item) => {
+      return item.id !== id
+    })
+    setUser({ ...user, cart: updatedCart })
+  }
   const cartProductDetail = {
-    // cartDetails: [
-    //   {
-    //     cartProductImage: DemoImage,
-    //     productName: "Men Premium Jacket",
-    //     price: "INR 2000",
-    //     discount: "50% Off",
-    //     quantity: "1",
-    //   }
-    // ],
-
     orderDetails: [
       {
         price: "INR 2,000",
@@ -26,7 +22,6 @@ const CartPage = () => {
         saving: "INR 1,000"
       }
     ]
-
   }
 
   return (
@@ -36,10 +31,10 @@ const CartPage = () => {
 
         {/* first section  */}
         <div className='cart-product-page'>
-          {user?.cart.map(({ cartProductImage, productName, price, discount, quantity }) => (
-            <div className='cart-product-description'>
+          {user?.cart.map(({ _id, cartProductImage, productname, price, discount, quantity }) => (
+            <div key={_id} className='cart-product-description'>
               <img className='cart-side-image' src={DemoImage} alt="product" />
-              <h5>{productName}</h5>
+              <h5>{productname}</h5>
               <div className="cart-price-box">
                 <h3 className='cart-price'>{price}</h3>
                 <h3 className='cart-price-lineThrough'>INR 1000</h3>
@@ -54,7 +49,7 @@ const CartPage = () => {
               <p className='cart-saving-text'>{discount}</p>
 
               <div className="btn-box">
-                <button className='cart-btn1'>Remove From Cart </button>
+                <button onClick={() => handleRemoveCart(_id)} className='cart-btn1'>Remove From Cart </button>
                 <button className='cart-btn1'>Move To Wishlist </button>
               </div>
             </div>

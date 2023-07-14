@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Filter from '../../components/Filter/Filter'
-import ProductList from '../../myComponents/productList/index'
+import ProductList from '../../myComponents/productList'
 import { products } from '../../backend/db/products'
 
-const Index = () => {
+const ProductListingPage = () => {
 
   const [filteredProduct, setFilteredProduct] = useState(products);
 
@@ -29,4 +29,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default ProductListingPage
