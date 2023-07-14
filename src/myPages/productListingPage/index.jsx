@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Filter from '../../components/Filter/Filter'
+import Filter from '../../myComponents/Filter/Filter'
 import ProductList from '../../myComponents/productList'
 import { products } from '../../backend/db/products'
 

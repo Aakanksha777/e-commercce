@@ -1,15 +1,14 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import ProductDetails from "./myComponents/productDetails/";
-import Login from "./components/login";
-import Register from "./components/Register/index";
+import Login from "./myComponents/login";
+import Register from "./myComponents/Register/index";
 import HomePage from "./myPages/homePage/Index";
 import ProductListingPage from "./myPages/productListingPage";
 import WishListPage from "./myPages/wishlistPage/Index";
 import CartPage from "./myPages/cartPage/index";
-import { useEffect, useState } from "react";
 import RequiresAuth from "./myComponents/RequiresAuth";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./myComponents/Navbar/Navbar";
 import { AuthProvider } from "./context/AuthContext";
 
 function App() {

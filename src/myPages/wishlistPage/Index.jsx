@@ -1,6 +1,5 @@
 import React from 'react'
-import Wishlist from '../../components/Wishlist/Wishlist'
-import Navbar from '../../components/Navbar/Navbar'
+import Wishlist from '../../myComponents/Wishlist/Wishlist'
 
 const Index = () => {
   return (

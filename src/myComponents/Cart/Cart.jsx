@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import './Cart.css'
 import DemoImage from '../../Assets/demoImage.png'
 import { AuthContext } from "../../context/AuthContext"
@@ -6,11 +6,16 @@ import { AuthContext } from "../../context/AuthContext"
 const CartPage = () => {
   const { user, setUser } = useContext(AuthContext)
 
+  //state
+  const [showItem, setShowItem] = useState(false)
+
   const handleRemoveCart = (id) => {
-    const updatedCart = user.cart.filter((item) => {
-      return item.id !== id
-    })
+    const updatedCart = user.cart.filter((item) =>   {
+    return item._id!== id
+  })
     setUser({ ...user, cart: updatedCart })
+    setShowItem(true)
+    // setUser({ ...user, cart: [] })
   }
   const cartProductDetail = {
     orderDetails: [
@@ -29,9 +34,11 @@ const CartPage = () => {
       <h2 className='cart-header'>My Cart</h2>
       <div className='main-cart-page'>
 
+{}
         {/* first section  */}
-        <div className='cart-product-page'>
-          {user?.cart.map(({ _id, cartProductImage, productname, price, discount, quantity }) => (
+        <div className='cart-product-page' >
+          {/* {user?.cart.map(({ _id, productname, price, discount, quantity }) => ( */}
+          {showItem && user?.cart.map(({ _id, productname, price, discount, quantity }) => (
             <div key={_id} className='cart-product-description'>
               <img className='cart-side-image' src={DemoImage} alt="product" />
               <h5>{productname}</h5>
@@ -53,11 +60,14 @@ const CartPage = () => {
                 <button className='cart-btn1'>Move To Wishlist </button>
               </div>
             </div>
-          ))}
+          )) }
+             {/* {!showItem && <h1 style={{textAlign: "center", color: "red"}}>No Item in the Cart</h1>} */}
+
         </div>
+       
 
         {/* second section  */}
-        <div className='cart-product-price'>
+        {/* <div className='cart-product-price'>
           <h3 className='cart-price-header'>Price Details </h3>
           <hr />
           {cartProductDetail.orderDetails.map(({ price, discount, charges, totalAmount, saving }) => (
@@ -75,9 +85,11 @@ const CartPage = () => {
               </div>
             </>
           ))}
-        </div>
+
+        </div> */}
 
       </div>
+             {!showItem && <h1 style={{textAlign: "center", color: "red"}}>No Item in the Cart</h1>}
     </>
   )
 }

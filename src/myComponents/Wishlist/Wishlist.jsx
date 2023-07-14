@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Wishlist.css'
-import DemoImage from '../../Assets/demoImage.png' 
+import DemoImage from '../../Assets/demoImage.png'
+// import { AuthContext } from '../../context/AuthContext' //step1
 
 const wishlistCart = [
     {
@@ -16,6 +17,8 @@ const wishlistCart = [
 ]
 
 const Wishlist = () => {
+
+  // const {user, setUser } = useContext(AuthContext) //step2
   return (
     <>
      <h2 className='wishlist-header'>My Wishlist</h2>

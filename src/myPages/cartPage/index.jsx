@@ -1,8 +1,12 @@
 import React from 'react'
-import Cart from '../../components/Cart/Cart'
-import Navbar from '../../components/Navbar/Navbar'
+import Cart from '../../myComponents/Cart/Cart'
 
 const index = () => {
+
+  // const removeCartItem = (item) => {
+  //   console.log(" removeCartItem is ",item)
+  // }
+
   return (
     <div>
       <Cart />

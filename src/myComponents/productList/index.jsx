@@ -1,25 +1,33 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom';
+import "./productList.css"
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
 const ProductList = ({ filteredProduct }) => {
+  const navigate = useNavigate();
+  // context
   const { user, setUser } = useContext(AuthContext)
 
+  //func to set user product in the cart Array.
   const handleCart = (item) => {
-
     setUser({ ...user, cart: [...user.cart, item] })
+    navigate('/cart')
   }
+
   return (
-    <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center", flexWrap: "wrap" }}>
+    <div className='main_div'>
       {filteredProduct.map((product) => {
-        const { _id, productname, price, type, image } = product
-        return <div key={_id} style={{ border: "2px solid gray", padding: "15px", margin: "20px" }}>
-          <img width="150" height="150" src={image} alt="categories" style={{ objectFit: "contain" }} />
+        const {id, price, type, image } = product
+
+        return <div 
+        key={id} 
+        className='single_div'>
+          <img src={image} alt="categories" className='product_img'/>
           <h2><i>{type}</i></h2>
           <h3>Price : {price}</h3>
           <button onClick={() => handleCart(product)}>Add to Cart</button>
           <br />
-          <Link to={`/product/${_id}`}>View More</Link>
+          <Link to={`/product/${id}`}>View More</Link>
           <hr />
         </div>
       })}
