@@ -1,15 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import Navbar from '../Navbar/Navbar';
+import { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
-
-export default function Login({ toggleLogin }) {
+export default function Login() {
+  const { setUser } = useContext(AuthContext)
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({ email: "", password: "" })
   const handleLoginInput = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   }
-
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     fetch("/api/auth/login", {
@@ -23,7 +22,8 @@ export default function Login({ toggleLogin }) {
       .then((data) => {
         if (data.foundUser) {
           localStorage.setItem('token', data.encodedToken)
-          toggleLogin(data.foundUser);
+          localStorage.setItem('user', JSON.stringify(data.foundUser))
+          setUser(data.foundUser)
           navigate("/")
         }
         else {
@@ -31,7 +31,7 @@ export default function Login({ toggleLogin }) {
         }
       })
   }
-
+  
   return (
     <>
       <div className="login">

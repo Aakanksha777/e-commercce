@@ -20,6 +20,8 @@ export const users = [
     _id: uuid(),
     firstName: "surya",
     lastName: "saini",
+    cart: [],
+    wishlist: [],
     email: "surya@gmail.com",
     password: "123",
     createdAt: formatDate(),
