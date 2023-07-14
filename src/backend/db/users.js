@@ -17,6 +17,7 @@ export const users = [
     },
     id: 1,
     email: "john@gmail.com",
+    cart: [],
     username: "johnd",
     password: "m38rmF$",
     name: { firstname: "john", lastname: "doe" },

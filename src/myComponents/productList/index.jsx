@@ -1,38 +1,49 @@
-import React, { useContext } from 'react'
-import "./productList.css"
-import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthContext';
+import React, { useContext, useEffect } from "react";
+import "./productList.css";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 const ProductList = ({ filteredProduct }) => {
-  const navigate = useNavigate();
   // context
-  const { user, setUser } = useContext(AuthContext)
-
+  const { user, setUser } = useContext(AuthContext);
   //func to set user product in the cart Array.
+
   const handleCart = (item) => {
-    setUser({ ...user, cart: [...user.cart, item] })
-    navigate('/cart')
-  }
+    const encodedToken = localStorage.getItem("token");
+    fetch("/api/user/cart", {
+      method: "post",
+      headers: {
+        authorization: encodedToken,
+        "content-type": "application/JSON",
+      },
+      body: JSON.stringify({ product: item }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+    setUser({ ...user, cart: [...user.cart, item] });
+  };
 
   return (
-    <div className='main_div'>
+    <div className="main_div">
       {filteredProduct.map((product) => {
-        const {id, price, type, image } = product
-
-        return <div 
-        key={id} 
-        className='single_div'>
-          <img src={image} alt="categories" className='product_img'/>
-          <h2><i>{type}</i></h2>
-          <h3>Price : {price}</h3>
-          <button onClick={() => handleCart(product)}>Add to Cart</button>
-          <br />
-          <Link to={`/product/${id}`}>View More</Link>
-          <hr />
-        </div>
+        const { id, price, type, image } = product;
+        return (
+          <div key={id} className="single_div">
+            <img src={image} alt="categories" className="product_img" />
+            <h2>
+              <i>{type}</i>
+            </h2>
+            <h3>Price : {price}</h3>
+            <button onClick={() => handleCart(product)}>Add to Cart</button>
+            <Link to={`/product/${id}`}>View More</Link>
+          </div>
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default ProductList
+export default ProductList;
