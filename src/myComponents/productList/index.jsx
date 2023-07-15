@@ -1,23 +1,22 @@
 import React, { useContext } from 'react'
 import "./productList.css"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 
-const ProductList = ({ filteredProduct }) => {
-  const navigate = useNavigate();
+const ProductList = ({product}) => {
   // context
   const { user, setUser } = useContext(AuthContext)
-
+  
   //func to set user product in the cart Array.
   const handleCart = (item) => {
     setUser({ ...user, cart: [...user.cart, item] })
-    navigate('/cart')
+    console.log("adding to the cart", item)
   }
 
   return (
     <div className='main_div'>
-      {filteredProduct.map((product) => {
-        const {id, price, type, image } = product
+      {product.map((item) => {
+        const {id, price, type, image } = item
 
         return <div 
         key={id} 

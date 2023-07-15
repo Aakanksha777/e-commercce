@@ -4,18 +4,14 @@ import DemoImage from '../../Assets/demoImage.png'
 import { AuthContext } from "../../context/AuthContext"
 
 const CartPage = () => {
-  const { user, setUser } = useContext(AuthContext)
-
-  //state
-  const [showItem, setShowItem] = useState(false)
+  const { user, setUser } = useContext(AuthContext) //step1
 
   const handleRemoveCart = (id) => {
     const updatedCart = user.cart.filter((item) =>   {
     return item._id!== id
   })
     setUser({ ...user, cart: updatedCart })
-    setShowItem(true)
-    // setUser({ ...user, cart: [] })
+    
   }
   const cartProductDetail = {
     orderDetails: [
@@ -37,8 +33,7 @@ const CartPage = () => {
 {}
         {/* first section  */}
         <div className='cart-product-page' >
-          {/* {user?.cart.map(({ _id, productname, price, discount, quantity }) => ( */}
-          {showItem && user?.cart.map(({ _id, productname, price, discount, quantity }) => (
+          {user?.cart.length > 0 ? (user?.cart.map(({ _id, productname, price, discount, quantity }) => (
             <div key={_id} className='cart-product-description'>
               <img className='cart-side-image' src={DemoImage} alt="product" />
               <h5>{productname}</h5>
@@ -60,8 +55,7 @@ const CartPage = () => {
                 <button className='cart-btn1'>Move To Wishlist </button>
               </div>
             </div>
-          )) }
-             {/* {!showItem && <h1 style={{textAlign: "center", color: "red"}}>No Item in the Cart</h1>} */}
+          )) ) : "Loading"}
 
         </div>
        
@@ -89,7 +83,6 @@ const CartPage = () => {
         </div> */}
 
       </div>
-             {!showItem && <h1 style={{textAlign: "center", color: "red"}}>No Item in the Cart</h1>}
     </>
   )
 }

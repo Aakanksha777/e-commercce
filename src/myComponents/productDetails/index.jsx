@@ -1,27 +1,38 @@
-import React from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { products } from '../../backend/db/products';
-import Demo from '../../Assets/demoImage.png'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+// import { products } from "../../backend/db/products";
 
-const Index = () => {
-    const {id} = useParams();
-    const filterArray = products.find((e) => e._id === id);
-    console.log("filtered Array is :  ", filterArray);
+const ProductDetails = () => {
+  const [singleProduct, setSingleProduct] = useState({});
+
+  const { itemid } = useParams();
+
+  useEffect(() => {
+    fetch(`/api/products/${itemid}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if(data.product) {
+          setSingleProduct(data.product);
+        }
+      });
+  }, []);
 
 
-  return (
-  <div>
-    <img src= {Demo} alt="product"/>
-    <br/>
-    {/* <i> {id} </i> */}
-    <h1>{filterArray.productname}</h1>
-    <h3>{filterArray.price}</h3>
-    <p>{filterArray.rating}</p>
-    <i>{filterArray.type}</i>
-    <br/>
-    <Link to="/product">See All</Link>
-  </div>
-  )
+if (Object.keys(singleProduct).length) {
+  const { image, name, price, rating, type } = singleProduct;
+
+  return  (
+    <div>
+      <img src={image} alt="product" />
+      <h1>{name}</h1>
+      <h3>{price}</h3>
+      <p>{rating}</p>
+      <i>{type}</i>
+    </div>
+  );
 }
 
-export default Index
+return ("Not Found")
+};
+
+export default ProductDetails;

@@ -8,18 +8,23 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "electronics",
-  },
-  {
-    _id: uuid(),
     categoryName: "women's clothing",
+    img : "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"
   },
   {
     _id: uuid(),
     categoryName: "men's clothing",
+    img : "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
   },
   {
     _id: uuid(),
     categoryName: "jewelery",
+    img : "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
+  },
+
+  {
+    _id: uuid(),
+    categoryName: "electronics",
+    img : "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg"
   },
 ];
