@@ -5,7 +5,7 @@ import { products } from '../../backend/db/products'
 
 const ProductListingPage = () => {
 
-  const [filteredProduct, setFilteredProduct] = useState(products);
+  const [filteredProduct, setFilteredProduct] = useState([]);
 
   useEffect(() => {
     fetch("/api/products")
@@ -23,6 +23,13 @@ const ProductListingPage = () => {
     console.log("newArray ..", newArray);
     setFilteredProduct(newArray)
   }
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => res.json())
+      .then((res) => {
+        setFilteredProduct(res.products)
+      });
+  }, []);
 
   const ratingItems = (e) => {
     console.log("radio ..", e.target.value)

@@ -23,7 +23,8 @@ export default function Login() {
         if (data.foundUser) {
           localStorage.setItem('token', data.encodedToken)
           localStorage.setItem('user', JSON.stringify(data.foundUser))
-          setUser(data.foundUser)
+          console.log("logged user", data)
+          setUser({ ...data.foundUser, token: data.encodedToken })
           navigate("/")
         }
         else {
@@ -31,7 +32,7 @@ export default function Login() {
         }
       })
   }
-  
+
   return (
     <>
       <div className="login">

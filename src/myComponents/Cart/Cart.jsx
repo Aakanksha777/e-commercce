@@ -1,18 +1,17 @@
-import React, { useContext, useState } from 'react'
-import './Cart.css'
-import DemoImage from '../../Assets/demoImage.png'
-import { AuthContext } from "../../context/AuthContext"
+import React, { useContext, useState } from "react";
+import "./Cart.css";
+import { AuthContext } from "../../context/AuthContext";
 
 const CartPage = () => {
-  const { user, setUser } = useContext(AuthContext) //step1
+  const { user, setUser } = useContext(AuthContext);
 
   const handleRemoveCart = (id) => {
-    const updatedCart = user.cart.filter((item) =>   {
-    return item._id!== id
-  })
-    setUser({ ...user, cart: updatedCart })
-    
-  }
+    const updatedCart = user.cart.filter((item) => {
+      return item._id !== id;
+    });
+    setUser({ ...user, cart: updatedCart });
+  };
+
   const cartProductDetail = {
     orderDetails: [
       {
@@ -20,46 +19,57 @@ const CartPage = () => {
         discount: "-INR 1,000",
         charges: "INR 499",
         totalAmount: "INR 2499",
-        saving: "INR 1,000"
-      }
-    ]
-  }
+        saving: "INR 1,000",
+      },
+    ],
+  };
 
   return (
     <>
-      <h2 className='cart-header'>My Cart</h2>
-      <div className='main-cart-page'>
-
-{}
+      <h2 className="cart-header">My Cart</h2>
+      <div className="main-cart-page">
         {/* first section  */}
-        <div className='cart-product-page' >
-          {user?.cart.length > 0 ? (user?.cart.map(({ _id, productname, price, discount, quantity }) => (
-            <div key={_id} className='cart-product-description'>
-              <img className='cart-side-image' src={DemoImage} alt="product" />
-              <h5>{productname}</h5>
-              <div className="cart-price-box">
-                <h3 className='cart-price'>{price}</h3>
-                <h3 className='cart-price-lineThrough'>INR 1000</h3>
-              </div>
+        <div className="cart-product-page">
+          {user?.cart.length > 0 ? (
+            user?.cart.map(
+              ({ _id, image, productname, price, discount, quantity }) => (
+                <div key={_id} className="cart-product-description">
+                  <img
+                    className="cart-side-image"
+                    src={image}
+                    alt="product"
+                  />
+                  <h5>{productname}</h5>
+                  <div className="cart-price-box">
+                    <h3 className="cart-price">{price}</h3>
+                    <h3 className="cart-price-lineThrough">INR 1000</h3>
+                  </div>
+                  <div className="cart-quantity-box">
+                    <button>+</button>
+                    <p className="cart-quantity">{quantity}</p>
+                    <button>-</button>
+                  </div>
 
-              <div className="cart-quantity-box">
-                <button>+</button>
-                <p className='cart-quantity'>{quantity}</p>
-                <button>-</button>
-              </div>
+                  <p className="cart-saving-text">{discount}</p>
 
-              <p className='cart-saving-text'>{discount}</p>
-
-              <div className="btn-box">
-                <button onClick={() => handleRemoveCart(_id)} className='cart-btn1'>Remove From Cart </button>
-                <button className='cart-btn1'>Move To Wishlist </button>
-              </div>
-            </div>
-          )) ) : "Loading"}
-
+                  <div className="btn-box">
+                    <button
+                      onClick={() => handleRemoveCart(_id)}
+                      className="cart-btn1"
+                    >
+                      Remove From Cart{" "}
+                    </button>
+                    <button className="cart-btn1">Move To Wishlist </button>
+                  </div>
+                </div>
+              )
+            )
+          ) : (
+            <h2 style={{ textAlign: "center", color: "red" }}>
+              No Item in the Cart
+            </h2>
+          )}
         </div>
-       
-
         {/* second section  */}
         {/* <div className='cart-product-price'>
           <h3 className='cart-price-header'>Price Details </h3>
@@ -81,10 +91,9 @@ const CartPage = () => {
           ))}
 
         </div> */}
-
       </div>
     </>
-  )
-}
+  );
+};
 
-export default CartPage
+export default CartPage;
