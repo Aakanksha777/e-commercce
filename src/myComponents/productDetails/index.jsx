@@ -5,34 +5,34 @@ import { useParams } from "react-router-dom";
 const ProductDetails = () => {
   const [singleProduct, setSingleProduct] = useState({});
 
-  const { itemid } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    fetch(`/api/products/${itemid}`)
+    fetch(`/api/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        if(data.product) {
+        if (data.product) {
           setSingleProduct(data.product);
         }
       });
   }, []);
 
 
-if (Object.keys(singleProduct).length) {
-  const { image, name, price, rating, type } = singleProduct;
+  if (Object.keys(singleProduct).length) {
+    const { image, name, price, rating, type } = singleProduct;
 
-  return  (
-    <div>
-      <img src={image} alt="product" />
-      <h1>{name}</h1>
-      <h3>{price}</h3>
-      <p>{rating}</p>
-      <i>{type}</i>
-    </div>
-  );
-}
+    return (
+      <div>
+        <img src={image} alt="product" />
+        <h1>{name}</h1>
+        <h3>{price}</h3>
+        <p>{rating}</p>
+        <i>{type}</i>
+      </div>
+    );
+  }
 
-return ("Not Found")
+  return ("Not Found")
 };
 
 export default ProductDetails;

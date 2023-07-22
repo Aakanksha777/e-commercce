@@ -27,7 +27,7 @@ const ProductList = ({ filteredProduct }) => {
 
   return (
     <div className="main_div">
-      {filteredProduct.map((product) => {
+      {filteredProduct.length > 0 ? filteredProduct.map((product) => {
         const { id, price, type, image } = product;
         return (
           <div key={id} className="single_div">
@@ -40,7 +40,8 @@ const ProductList = ({ filteredProduct }) => {
             <Link to={`/product/${id}`}>View More</Link>
           </div>
         );
-      })}
+      }) :
+        <div>Loading...</div>}
     </div>
   );
 };

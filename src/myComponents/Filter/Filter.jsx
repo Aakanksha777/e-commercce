@@ -4,7 +4,7 @@ const Filter = ({ filterItemsByCategory, ratingItems }) => {
   return (
     <div className='filter-container'>
       <div className='filter-headings-top'>
-        <h4>Filters</h4>
+        <h3>Filters</h3>
         <p>Clear</p>
       </div>
 

@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import ProductDetails from "./myComponents/productDetails/";
 import Login from "./myComponents/login";
 import Register from "./myComponents/Register/index";
-import ProductListingPage from "./myPages/productListingPage";
+import ProductsPage from "./myPages/productsPage";
 import WishListPage from "./myPages/wishlistPage/Index";
 import CartPage from "./myPages/cartPage/index";
 import RequiresAuth from "./myComponents/RequiresAuth";
@@ -19,8 +19,8 @@ function App() {
         <Routes>
           <Route path="/" element={<RequiresAuth />}>
             <Route index element={<Homepage />} />
-            <Route path="product" element={<ProductListingPage />} />
-            <Route path="product/:itemid" element={<ProductDetails />} />
+            <Route path="category/:id" element={<ProductsPage />} />
+            <Route path="product/:id" element={<ProductDetails />} />
             <Route path="wishlist" element={<WishListPage />} />
             <Route path="cart" element={<CartPage />} />
           </Route>
