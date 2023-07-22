@@ -3,13 +3,13 @@ import { Routes, Route } from "react-router-dom";
 import ProductDetails from "./myComponents/productDetails/";
 import Login from "./myComponents/login";
 import Register from "./myComponents/Register/index";
-import HomePage from "./myPages/homePage/Index";
 import ProductListingPage from "./myPages/productListingPage";
 import WishListPage from "./myPages/wishlistPage/Index";
 import CartPage from "./myPages/cartPage/index";
 import RequiresAuth from "./myComponents/RequiresAuth";
 import Navbar from "./myComponents/Navbar/Navbar";
 import { AuthProvider } from "./context/AuthContext";
+import Homepage from "./myPages/homePage";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<RequiresAuth />}>
-            <Route index element={<HomePage />} />
+            <Route index element={<Homepage />} />
             <Route path="product" element={<ProductListingPage />} />
             <Route path="product/:itemid" element={<ProductDetails />} />
             <Route path="wishlist" element={<WishListPage />} />

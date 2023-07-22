@@ -1,34 +1,34 @@
 .main-div-homePage {
-    /* border: 2px solid blue; */
-    width: 80%;
     text-align: center;
     margin-inline: auto;
-    height: 50vh;
-    padding: 30px;
-    margin-block: 20px;
+    padding-inline: 30px;
+    flex-wrap: wrap;
     display: flex;
 }
 
 .data-div {
-/* border: 2px solid green; */
-width: 50%;
-margin: 10px;
-padding: 10px;
-/* box-shadow: rgba(2, 41, 92, 0.35) 0px 5px 15px; */
-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    width: 50%;
+    padding: 25px;
+    box-shadow: rgba(7, 49, 60, 0.1) 0px 5px 15px;
 }
 
-.data-img { 
-width: 50%;
-object-fit: contain;
-/* border: 2px solid orangered; */
-height: 30vh;
+.data-img {
+    width: 50%;
+    object-fit: contain;
+    padding-bottom: 10px;
+    height: 30vh;
+}
+
+.data-div h3 {
+    font-size: 22px;
+    text-transform: capitalize;
 }
 
 .homepage-link {
     text-decoration: none;
     color: darkblue;
 }
+
 .homepage-link:hover {
     font-size: large;
 }
