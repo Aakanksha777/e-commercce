@@ -1,4 +1,4 @@
-const Ajax = async (url, method, body, token) => {
+export const Ajax = async (url, token, body, method) => {
   try {
     const response = await fetch(url, {
       method: method ? method : "get",
@@ -6,15 +6,10 @@ const Ajax = async (url, method, body, token) => {
         "content-type": "application/json",
         ...(token && { authorization: token }),
       },
-      ...(method && body),
+      ...(body && { body }),
     });
     return await response.json();
   } catch (err) {
     console.log(err);
   }
-};
-
-export const addProductOnClick = async (token, item, url) => {
-  const body = JSON.stringify({ product: item });
-  return await Ajax(url, "post", body, token);
 };

@@ -12,8 +12,8 @@ const ProductCard = ({ productData }) => {
                 />
                 <h5>{productname}</h5>
                 <div className="cart-price-box">
-                    <h3 className="cart-price">{price}</h3>
-                    <h3 className="cart-price-lineThrough">INR 1000</h3>
+                    <h3 className="cart-price">${price}</h3>
+                    <h3 className="cart-price-lineThrough">${price + Math.floor(Math.random() * 10)}</h3>
                 </div>
                 <div className="cart-quantity-box">
                     <button>+</button>

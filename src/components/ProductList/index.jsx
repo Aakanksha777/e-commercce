@@ -3,7 +3,7 @@ import "./productList.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { CartAndWishlistContext } from "../../context/CartAndWishlist";
-import { addProductOnClick } from "../../utlis/apiFunc";
+import { Ajax } from "../../utlis/apiFunc";
 
 const ProductList = ({ filteredProduct }) => {
   // context
@@ -11,21 +11,22 @@ const ProductList = ({ filteredProduct }) => {
   const { cart, wishlist, setCart, setWishlist } = useContext(CartAndWishlistContext);
   //func to set user product in the cart Array.
 
-  const addToCart = async (item) => {
+  const addToCart = async (product) => {
     if (user.token) {
-      const response = await addProductOnClick(user.token, item, "/api/user/cart")
+      const response = await Ajax("/api/user/cart", user.token, JSON.stringify({ product: product }), "post")
       setCart(response.cart)
     } else {
-      setCart([...cart, item])
+      setCart([...cart, product])
     }
   };
 
-  const addToWishlist = async (item) => {
+  const addToWishlist = async (product) => {
     if (user.token) {
-      const response = await addProductOnClick(user.token, item, "/api/user/wishlist")
+      const response = await Ajax("/api/user/wishlist", user.token, JSON.stringify({ product: product }), "post")
+      console.log(response)
       setWishlist(response.wishlist)
     } else {
-      setWishlist([...wishlist, item])
+      setWishlist([...wishlist, product])
     }
   };
 

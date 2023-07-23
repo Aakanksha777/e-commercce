@@ -4,24 +4,25 @@ import { CartAndWishlistContext } from "../../context/CartAndWishlist"
 import { AuthContext } from '../../context/AuthContext'
 
 const WishlisPage = () => {
-  const { wishlist, setWishlist } = useContext(CartAndWishlistContext)
   const { user } = useContext(AuthContext)
+  const { wishlist, setWishlist } = useContext(CartAndWishlistContext)
 
   useEffect(() => {
     if (user.token) {
       const { token } = user
-      fetch(`/api/user/cart`, {
+      fetch(`/api/user/wishlist`, {
         headers: { authorization: token }
       }).then((res) => res.json())
         .then((data) => {
-          setWishlist(data.cart)
+          console.log("get call wishlist", data.wishlist);
+          setWishlist(data.wishlist)
         })
         .catch((e) => console.log("Error is ", e))
     } else {
       const localWishlistData = JSON.parse(localStorage.getItem('wishlist'))
       localWishlistData && setWishlist(localWishlistData)
     }
-  }, [])
+  }, [user])
 
   return (
     <div>

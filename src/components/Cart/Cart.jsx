@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import "./Cart.css";
-import { AuthContext } from "../../context/AuthContext";
 import ProductCard from "../ProductCard"
 const CartPage = ({ cart }) => {
 

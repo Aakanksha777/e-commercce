@@ -1,36 +1,46 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { Ajax } from "../../utlis/apiFunc"
+import { CartAndWishlistContext } from "../../context/CartAndWishlist";
 
 export default function Login() {
-  const { setUser } = useContext(AuthContext)
   const navigate = useNavigate();
+  const { setUser } = useContext(AuthContext)
+  const { cart, wishlist } = useContext(CartAndWishlistContext)
   const [loginData, setLoginData] = useState({ email: "", password: "" })
+
   const handleLoginInput = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   }
-  const handleLoginSubmit = (e) => {
+
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    fetch("/api/auth/login", {
-      method: "post",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify(loginData)
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.foundUser) {
-          const fullUser = { ...data.foundUser, token: data.encodedToken }
-          localStorage.setItem('user', JSON.stringify(fullUser))
-          setUser(fullUser)
-          navigate("/")
-          console.log(data.foundUser);
-        }
-        else {
-          alert(JSON.stringify(data.error))
-        }
-      })
+    const response = await Ajax("/api/auth/login", undefined, JSON.stringify(loginData), "post")
+    console.log(response)
+    if (response.foundUser) {
+      const fullUser = { ...response.foundUser, token: response.encodedToken }
+      localStorage.setItem('user', JSON.stringify(fullUser))
+      setUser(fullUser)
+      if (cart.length > 0) {
+        console.log(cart.length)
+        const getresponse = cart.map(async (product) => {
+          return await Ajax("/api/user/cart", response.encodedToken, JSON.stringify({ product: product }), "post")
+        })
+        const getProductresponse = await Promise.all(getresponse)
+        console.log("getProductresponse", getProductresponse)
+      }
+      if (wishlist.length > 0) {
+        const getresponse = wishlist.map(async (product) => {
+          return await Ajax("/api/user/wishlist", response.encodedToken, JSON.stringify({ product: product }), "post")
+        })
+        await Promise.all(getresponse)
+      }
+      navigate("/")
+    }
+    else {
+      alert(JSON.stringify(response))
+    }
   }
 
   return (

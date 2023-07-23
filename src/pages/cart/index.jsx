@@ -15,7 +15,7 @@ const CartPage = () => {
       }).then((res) => res.json())
         .then((data) => {
           setCart(data.cart)
-          console.log(data.cart);
+          console.log("get call", data.cart);
         })
         .catch((e) => console.log("Error is ", e))
     } else {
