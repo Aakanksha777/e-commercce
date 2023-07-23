@@ -11,7 +11,7 @@ const ProductList = ({ filteredProduct }) => {
   // context
   const { user } = useContext(AuthContext);
   const { cart, wishlist, setCart, setWishlist } = useContext(CartAndWishlistContext);
-
+  //most difficult function
   const incrementProduct = async (product) => {
     if (user.token) {
       const response = await updateItemQuantity(product.id, "increment", user.token)
@@ -24,11 +24,13 @@ const ProductList = ({ filteredProduct }) => {
       setCart(incrementedProduct)
     }
   }
+
   const handleAddProduct = async (product, toLocation) => {
-    if (checkSameAlreadyExist(cart, product)) {
+    if (toLocation === "cart" && checkSameAlreadyExist(cart, product)) {
       toLocation === "cart" && await incrementProduct(product)
       return
     }
+    if (toLocation === "wishlist" && checkSameAlreadyExist(wishlist, product)) return
     if (user.token) {
       const response = await Ajax(`/api/user/${toLocation}`, user.token, JSON.stringify({ product: product }), "post")
       toLocation === "cart" ? setCart(response[toLocation]) : setWishlist(response[toLocation])

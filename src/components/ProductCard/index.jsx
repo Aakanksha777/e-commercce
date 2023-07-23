@@ -27,7 +27,6 @@ const ProductCard = ({ productData }) => {
         if (user.token) {
             const response = await deleteItem(product.id, user.token)
             setCart(response.cart)
-            console.log(product, response)
         } else {
             const qtyChangedProduct = cart.filter((ele) => ele.id !== product.id)
             setCart(qtyChangedProduct)

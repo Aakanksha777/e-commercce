@@ -3,10 +3,6 @@ import "./Cart.css";
 import ProductCard from "../ProductCard"
 const CartPage = ({ cart }) => {
 
-  const handleRemoveProduct = (id) => {
-
-  };
-
   const cartProductDetail = {
     orderDetails: [
       {
