@@ -23,5 +23,5 @@ export const updateItemQuantity = async (productId, changeType, token) => {
   );
 };
 export const deleteItem = async (productId, token) => {
-  return await Ajax(`/api/user/cart/${productId}`, token, null, "post");
+  return await Ajax(`/api/user/cart/${productId}`, token, null, "DELETE");
 };

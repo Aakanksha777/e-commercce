@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext';
-import { updateItemQuantity } from '../../utlis/apiFunc';
+import { deleteItem, updateItemQuantity } from '../../utlis/apiFunc';
 import { CartAndWishlistContext } from '../../context/CartAndWishlist';
 
 const ProductCard = ({ productData }) => {
@@ -20,14 +20,14 @@ const ProductCard = ({ productData }) => {
                 return ele
             })
             flag && (qtyChangedProduct = cart.filter((ele) => ele.id !== product.id))
-            console.log(flag, qtyChangedProduct)
             setCart(qtyChangedProduct)
         }
     }
     const handleRemoveProduct = async (product) => {
         if (user.token) {
-            const response = await updateItemQuantity(product.id, user.token)
+            const response = await deleteItem(product.id, user.token)
             setCart(response.cart)
+            console.log(product, response)
         } else {
             const qtyChangedProduct = cart.filter((ele) => ele.id !== product.id)
             setCart(qtyChangedProduct)

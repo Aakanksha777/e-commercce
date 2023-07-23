@@ -46,12 +46,21 @@ export const addItemToCartHandler = function (schema, request) {
     }
     const userCart = schema.users.findBy({ id: userId }).cart;
     const { product } = JSON.parse(request.requestBody);
-    userCart.push({
-      ...product,
-      createdAt: formatDate(),
-      updatedAt: formatDate(),
-      qty: 1,
+    let flag = false;
+    userCart.forEach((cartEle) => {
+      if (cartEle.id === product.id) {
+        flag = true;
+        cartEle.qty += 1;
+      }
     });
+    if (!flag) {
+      userCart.push({
+        ...product,
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        qty: 1,
+      });
+    }
     this.db.users.update({ id: userId }, { cart: userCart });
     return new Response(201, {}, { cart: userCart });
   } catch (error) {
@@ -84,7 +93,7 @@ export const removeItemFromCartHandler = function (schema, request) {
     }
     let userCart = schema.users.findBy({ id: userId }).cart;
     const productId = request.params.productId;
-    userCart = userCart.filter((item) => item.id !== productId);
+    userCart = userCart.filter((item) => item.id != productId);
     this.db.users.update({ id: userId }, { cart: userCart });
     return new Response(200, {}, { cart: userCart });
   } catch (error) {
