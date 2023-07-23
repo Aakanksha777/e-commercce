@@ -1,15 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Cart.css";
 import { AuthContext } from "../../context/AuthContext";
 
-const CartPage = () => {
-  const { user, setUser } = useContext(AuthContext);
+const CartPage = ({ cart }) => {
 
-  const handleRemoveCart = (id) => {
-    const updatedCart = user.cart.filter((item) => {
+  const handleRemoveProduct = (id) => {
+    const updatedCart = cart.filter((item) => {
       return item._id !== id;
     });
-    setUser({ ...user, cart: updatedCart });
   };
 
   const cartProductDetail = {
@@ -30,8 +28,8 @@ const CartPage = () => {
       <div className="main-cart-page">
         {/* first section  */}
         <div className="cart-product-page">
-          {user?.cart.length > 0 ? (
-            user?.cart.map(
+          {cart.length > 0 ? (
+            cart.map(
               ({ _id, image, productname, price, discount, quantity }) => (
                 <div key={_id} className="cart-product-description">
                   <img
@@ -54,7 +52,7 @@ const CartPage = () => {
 
                   <div className="btn-box">
                     <button
-                      onClick={() => handleRemoveCart(_id)}
+                      onClick={() => handleRemoveProduct(_id)}
                       className="cart-btn1"
                     >
                       Remove From Cart{" "}

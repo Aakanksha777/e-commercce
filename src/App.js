@@ -9,27 +9,30 @@ import CartPage from "./pages/cart/index";
 import RequiresAuth from "./components/RequiresAuth";
 import Navbar from "./components/Navbar/Navbar";
 import { AuthProvider } from "./context/AuthContext";
+import { CartAndWishlistProvider } from "./context/CartAndWishlist";
 import Homepage from "./pages/home";
 
 function App() {
   return (
-    <AuthProvider>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route index element={<Homepage />} />
-          <Route path="category/:id" element={<ProductsPage />} />
-          <Route path="product/:id" element={<ProductDetails />} />
-          <Route path="wishlist" element={<WishListPage />} />
-          <Route path="cart" element={<CartPage />} />
+    <CartAndWishlistProvider>
+      <AuthProvider>
+        <div className="App">
+          <Navbar />
+          <Routes>
+            <Route index element={<Homepage />} />
+            <Route path="category/:id" element={<ProductsPage />} />
+            <Route path="product/:id" element={<ProductDetails />} />
+            <Route path="wishlist" element={<WishListPage />} />
+            <Route path="cart" element={<CartPage />} />
 
-          <Route path="/" element={<RequiresAuth />}></Route>
+            <Route path="/" element={<RequiresAuth />}></Route>
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </div>
-    </AuthProvider>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </div>
+      </AuthProvider>
+    </CartAndWishlistProvider>
   );
 }
 

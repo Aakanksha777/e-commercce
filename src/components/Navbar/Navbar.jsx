@@ -22,24 +22,15 @@ const Navbar = () => {
       <Link to="/" className="leftside-navbar">TRENDY</Link>
       <div className="rightside-navbar">
         <div className="icon-list-navbar">
-
-          <div className='navbar-items'>
-            <Link to="/"><AiOutlineHome /></Link>
-          </div>
-
           <div className='navbar-items'>
             <Link to="/category/0"><AiOutlineSearch /></Link>
           </div>
-
           <div className='navbar-items'>
             <Link to="/wishlist"><AiOutlineHeart /></Link>
           </div>
-
           <div className='navbar-items'>
             <Link to="/cart"><AiOutlineShoppingCart /></Link>
           </div>
-
-
           <div className='navbar-items'>
             {user.email ?
               <span onClick={handleLogout}>Log out</span>
