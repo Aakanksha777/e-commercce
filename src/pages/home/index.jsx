@@ -15,8 +15,8 @@ const Homepage = () => {
   return (
     <>
       <div className="main-div-homePage">
-        {category.map(({ _id, img, categoryName }) => (
-          <Link key={_id} to={`/category/${_id}`}>
+        {category.map(({ id, img, categoryName }) => (
+          <Link key={id} to={`/category/${id}`}>
             <div className='data-div'>
               <img src={img} alt="categories" className='data-img' />
               <h3><i>{categoryName}</i></h3>

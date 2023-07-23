@@ -8,7 +8,7 @@
 
 export const users = [
   {
-    _id: 11,
+    id: 11,
     email: "surya@gmail.com",
     cart: [],
     username: "surya0796",
@@ -16,7 +16,7 @@ export const users = [
     name: { firstname: "surya", lastname: "saini" },
   },
   {
-    _id: 12,
+    id: 12,
     email: "aakanksha@gmail.com",
     cart: [
       {

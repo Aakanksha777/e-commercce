@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Index = (e) => {
-
+const Register = () => {
   const [registerData, setRegisterData] = useState({ username: "", firstname: "", lastname: "", email: "", password: "", confirmPassword: "" })
   const navigate = useNavigate();
 
@@ -12,7 +11,6 @@ const Index = (e) => {
   }
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
     fetch("/api/auth/signup", {
       method: "post",
@@ -23,7 +21,6 @@ const Index = (e) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        localStorage.setItem("token", data.encodedToken);
         alert('User created successfully')
         navigate("/login")
       })
@@ -102,4 +99,4 @@ const Index = (e) => {
   );
 }
 
-export default Index
+export default Register

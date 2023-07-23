@@ -4,9 +4,7 @@ import ProductCard from "../ProductCard"
 const CartPage = ({ cart }) => {
 
   const handleRemoveProduct = (id) => {
-    const updatedCart = cart.filter((item) => {
-      return item._id !== id;
-    });
+
   };
 
   const cartProductDetail = {

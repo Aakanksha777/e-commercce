@@ -5,13 +5,16 @@ import { AuthContext } from "../../context/AuthContext";
 import { CartAndWishlistContext } from "../../context/CartAndWishlist";
 import { Ajax } from "../../utlis/apiFunc";
 
+const checkSameAlreadyExist = (list, item) => list.find(ele => ele.id === item.id)
+
 const ProductList = ({ filteredProduct }) => {
   // context
   const { user } = useContext(AuthContext);
   const { cart, wishlist, setCart, setWishlist } = useContext(CartAndWishlistContext);
-  //func to set user product in the cart Array.
 
   const addToCart = async (product) => {
+    !product.qty && (product.qty = 1)
+    if (checkSameAlreadyExist(cart, product)) return
     if (user.token) {
       const response = await Ajax("/api/user/cart", user.token, JSON.stringify({ product: product }), "post")
       setCart(response.cart)
@@ -21,9 +24,9 @@ const ProductList = ({ filteredProduct }) => {
   };
 
   const addToWishlist = async (product) => {
+    if (checkSameAlreadyExist(wishlist, product)) return
     if (user.token) {
       const response = await Ajax("/api/user/wishlist", user.token, JSON.stringify({ product: product }), "post")
-      console.log(response)
       setWishlist(response.wishlist)
     } else {
       setWishlist([...wishlist, product])

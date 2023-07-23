@@ -17,18 +17,15 @@ export default function Login() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     const response = await Ajax("/api/auth/login", undefined, JSON.stringify(loginData), "post")
-    console.log(response)
     if (response.foundUser) {
       const fullUser = { ...response.foundUser, token: response.encodedToken }
       localStorage.setItem('user', JSON.stringify(fullUser))
       setUser(fullUser)
       if (cart.length > 0) {
-        console.log(cart.length)
         const getresponse = cart.map(async (product) => {
           return await Ajax("/api/user/cart", response.encodedToken, JSON.stringify({ product: product }), "post")
         })
-        const getProductresponse = await Promise.all(getresponse)
-        console.log("getProductresponse", getProductresponse)
+        await Promise.all(getresponse)
       }
       if (wishlist.length > 0) {
         const getresponse = wishlist.map(async (product) => {
