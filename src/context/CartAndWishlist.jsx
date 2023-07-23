@@ -8,13 +8,18 @@ export function CartAndWishlistProvider({ children }) {
     const [wishlist, setWishlist] = useState([])
 
     useEffect(() => {
+        const cartStored = JSON.parse(localStorage.getItem("cart"))
+        const wishlistStored = JSON.parse(localStorage.getItem("wishlist"))
+        setCart(cartStored)
+        setWishlist(wishlistStored)
+    }, [])
+
+    useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart))
-        console.log(cart)
     }, [cart])
 
     useEffect(() => {
         localStorage.setItem("wishlist", JSON.stringify(wishlist))
-        console.log(wishlist)
     }, [wishlist])
 
     return (

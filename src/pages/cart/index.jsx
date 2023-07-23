@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Cart from '../../components/Cart/Cart'
 import { AuthContext } from '../../context/AuthContext'
+import { CartAndWishlistContext } from '../../context/CartAndWishlist'
 
 const CartPage = () => {
-  const [cart, setCart] = useState([])
+  const { cart, setCart } = useContext(CartAndWishlistContext)
   const { user } = useContext(AuthContext)
 
   useEffect(() => {
