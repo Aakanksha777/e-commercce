@@ -3,7 +3,7 @@ import "./productList.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { CartAndWishlistContext } from "../../context/CartAndWishlist";
-import { Ajax } from "../../utlis/apiFunc";
+import { Ajax, updateItemQuantity } from "../../utlis/apiFunc";
 
 const checkSameAlreadyExist = (list, item) => list.find(ele => ele.id === item.id)
 
@@ -12,24 +12,28 @@ const ProductList = ({ filteredProduct }) => {
   const { user } = useContext(AuthContext);
   const { cart, wishlist, setCart, setWishlist } = useContext(CartAndWishlistContext);
 
-  const addToCart = async (product) => {
-    !product.qty && (product.qty = 1)
-    if (checkSameAlreadyExist(cart, product)) return
+  const incrementProduct = async (product) => {
     if (user.token) {
-      const response = await Ajax("/api/user/cart", user.token, JSON.stringify({ product: product }), "post")
+      const response = await updateItemQuantity(product.id, "increment", user.token)
       setCart(response.cart)
     } else {
-      setCart([...cart, product])
+      const incrementedProduct = cart.map((ele) => {
+        if (ele.id === product.id) ele.qty += 1
+        return ele
+      })
+      setCart(incrementedProduct)
     }
-  };
-
-  const addToWishlist = async (product) => {
-    if (checkSameAlreadyExist(wishlist, product)) return
+  }
+  const handleAddProduct = async (product, toLocation) => {
+    if (checkSameAlreadyExist(cart, product)) {
+      toLocation === "cart" && await incrementProduct(product)
+      return
+    }
     if (user.token) {
-      const response = await Ajax("/api/user/wishlist", user.token, JSON.stringify({ product: product }), "post")
-      setWishlist(response.wishlist)
+      const response = await Ajax(`/api/user/${toLocation}`, user.token, JSON.stringify({ product: product }), "post")
+      toLocation === "cart" ? setCart(response[toLocation]) : setWishlist(response[toLocation])
     } else {
-      setWishlist([...wishlist, product])
+      toLocation === "cart" ? setCart([...cart, product]) : setWishlist([...wishlist, product])
     }
   };
 
@@ -45,8 +49,13 @@ const ProductList = ({ filteredProduct }) => {
               <span>{rating.rate} by {rating.count} users</span>
             </div>
             <div>
-              <button onClick={() => addToCart(product)}>Add to Cart</button>
-              <button onClick={() => addToWishlist(product)}>Add to Wishlist</button>
+              <button onClick={() => {
+                !product.qty && (product.qty = 1)
+                handleAddProduct(product, "cart")
+              }}>
+                Add to Cart
+              </button>
+              <button onClick={() => handleAddProduct(product, "wishlist")}>Add to Wishlist</button>
             </div>
             <Link to={`/product/${id}`}>View More</Link>
           </div>

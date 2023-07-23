@@ -13,3 +13,15 @@ export const Ajax = async (url, token, body, method) => {
     console.log(err);
   }
 };
+
+export const updateItemQuantity = async (productId, changeType, token) => {
+  return await Ajax(
+    `/api/user/cart/${productId}`,
+    token,
+    JSON.stringify({ action: { type: changeType } }),
+    "post"
+  );
+};
+export const deleteItem = async (productId, token) => {
+  return await Ajax(`/api/user/cart/${productId}`, token, null, "post");
+};
