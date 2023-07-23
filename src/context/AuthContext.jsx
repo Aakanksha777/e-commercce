@@ -10,6 +10,11 @@ export function AuthProvider({ children }) {
         console.log(user)
     }, [user])
 
+    useEffect(() => {
+        const userExist = JSON.parse(localStorage.getItem("user"))
+        userExist && setUser(userExist)
+    }, [])
+
     return (
         <AuthContext.Provider value={{ user, setUser }}>
             {children}

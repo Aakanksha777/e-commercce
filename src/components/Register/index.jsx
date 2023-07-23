@@ -25,7 +25,7 @@ const Index = (e) => {
       .then((data) => {
         localStorage.setItem("token", data.encodedToken);
         alert('User created successfully')
-        navigate("/")
+        navigate("/login")
       })
       .catch((e) => {
         alert("Found ERROR..", e)

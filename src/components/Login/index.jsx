@@ -21,11 +21,11 @@ export default function Login() {
       .then((res) => res.json())
       .then((data) => {
         if (data.foundUser) {
-          localStorage.setItem('token', data.encodedToken)
-          localStorage.setItem('user', JSON.stringify(data.foundUser))
-          console.log("logged user", data)
-          setUser({ ...data.foundUser, token: data.encodedToken })
+          const fullUser = { ...data.foundUser, token: data.encodedToken }
+          localStorage.setItem('user', JSON.stringify(fullUser))
+          setUser(fullUser)
           navigate("/")
+          console.log(data.foundUser);
         }
         else {
           alert(JSON.stringify(data.error))

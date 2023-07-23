@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { products } from "../../backend/db/products";
 
 const ProductDetails = () => {
   const [singleProduct, setSingleProduct] = useState({});
@@ -16,10 +15,8 @@ const ProductDetails = () => {
       });
   }, []);
 
-
   if (Object.keys(singleProduct).length) {
     const { image, name, price, rating, type } = singleProduct;
-
     return (
       <div>
         <img src={image} alt="product" />

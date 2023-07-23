@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Cart.css";
 import { AuthContext } from "../../context/AuthContext";
-
+import ProductCard from "../ProductCard"
 const CartPage = ({ cart }) => {
 
   const handleRemoveProduct = (id) => {
@@ -30,36 +30,8 @@ const CartPage = ({ cart }) => {
         <div className="cart-product-page">
           {cart.length > 0 ? (
             cart.map(
-              ({ _id, image, productname, price, discount, quantity }) => (
-                <div key={_id} className="cart-product-description">
-                  <img
-                    className="cart-side-image"
-                    src={image}
-                    alt="product"
-                  />
-                  <h5>{productname}</h5>
-                  <div className="cart-price-box">
-                    <h3 className="cart-price">{price}</h3>
-                    <h3 className="cart-price-lineThrough">INR 1000</h3>
-                  </div>
-                  <div className="cart-quantity-box">
-                    <button>+</button>
-                    <p className="cart-quantity">{quantity}</p>
-                    <button>-</button>
-                  </div>
-
-                  <p className="cart-saving-text">{discount}</p>
-
-                  <div className="btn-box">
-                    <button
-                      onClick={() => handleRemoveProduct(_id)}
-                      className="cart-btn1"
-                    >
-                      Remove From Cart{" "}
-                    </button>
-                    <button className="cart-btn1">Move To Wishlist </button>
-                  </div>
-                </div>
+              (productData) => (
+                <ProductCard key={productData.id} productData={productData} />
               )
             )
           ) : (

@@ -8,10 +8,10 @@ const WishlisPage = () => {
   const { user } = useContext(AuthContext)
 
   useEffect(() => {
-    if (user.encodedToken) {
-      const { encodedToken } = user
+    if (user.token) {
+      const { token } = user
       fetch(`/api/user/cart`, {
-        headers: { authorization: encodedToken }
+        headers: { authorization: token }
       }).then((res) => res.json())
         .then((data) => {
           setWishlist(data.cart)

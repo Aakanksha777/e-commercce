@@ -6,15 +6,20 @@ import { AiOutlineHome } from 'react-icons/ai'
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
+import { CartAndWishlistContext } from '../../context/CartAndWishlist';
 
 
 const Navbar = () => {
   const { user, setUser } = useContext(AuthContext)
+  const { setCart, setWishlist } = useContext(CartAndWishlistContext)
 
   const handleLogout = () => {
     setUser({})
+    setCart([])
+    setWishlist([])
     localStorage.removeItem("user")
-    localStorage.removeItem("token")
+    localStorage.removeItem("cart")
+    localStorage.removeItem("wishlist")
   }
 
   return (

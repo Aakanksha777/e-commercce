@@ -1,45 +1,32 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./productList.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { CartAndWishlistContext } from "../../context/CartAndWishlist";
+import { addProductOnClick } from "../../utlis/apiFunc";
 
-const addProductOnClick = (token, item, url, setterFunc) => {
-  if (token) {
-    fetch(url, {
-      method: "POST",
-      headers: {
-        authorization: token,
-        "content-type": "application/json"
-      },
-      body: JSON.stringify({ product: item }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-      })
-      .catch((err) => console.log(err));
-  } else {
-    setterFunc()
-  }
-};
 const ProductList = ({ filteredProduct }) => {
   // context
   const { user } = useContext(AuthContext);
   const { cart, wishlist, setCart, setWishlist } = useContext(CartAndWishlistContext);
   //func to set user product in the cart Array.
 
-  const addToCart = (item) => {
-    const setterFunc = () => {
+  const addToCart = async (item) => {
+    if (user.token) {
+      const response = await addProductOnClick(user.token, item, "/api/user/cart")
+      setCart(response.cart)
+    } else {
       setCart([...cart, item])
     }
-    addProductOnClick(user.token, item, "/api/user/cart", setterFunc)
   };
 
-  const addToWishlist = (item) => {
-    const setterFunc = () => {
+  const addToWishlist = async (item) => {
+    if (user.token) {
+      const response = await addProductOnClick(user.token, item, "/api/user/wishlist")
+      setWishlist(response.wishlist)
+    } else {
       setWishlist([...wishlist, item])
     }
-    addProductOnClick(user.token, item, "/api/user/wishlist", setterFunc)
   };
 
   return (

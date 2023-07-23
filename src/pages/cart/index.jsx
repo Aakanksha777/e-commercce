@@ -8,13 +8,14 @@ const CartPage = () => {
   const { user } = useContext(AuthContext)
 
   useEffect(() => {
-    if (user.encodedToken) {
-      const { encodedToken } = user
+    if (user.token) {
+      const { token } = user
       fetch(`/api/user/cart`, {
-        headers: { authorization: encodedToken }
+        headers: { authorization: token }
       }).then((res) => res.json())
         .then((data) => {
           setCart(data.cart)
+          console.log(data.cart);
         })
         .catch((e) => console.log("Error is ", e))
     } else {
