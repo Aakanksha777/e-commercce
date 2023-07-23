@@ -1,5 +1,5 @@
 import React from 'react'
-import Cart from '../../myComponents/Cart/Cart'
+import Cart from '../../components/Cart/Cart'
 
 const index = () => {
 

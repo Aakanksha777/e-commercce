@@ -1,5 +1,5 @@
 import React from 'react'
-import Wishlist from '../../myComponents/Wishlist/Wishlist'
+import Wishlist from '../../components/Wishlist/Wishlist'
 
 const Index = () => {
   return (

@@ -32,12 +32,14 @@ const ProductList = ({ filteredProduct }) => {
         return (
           <div key={id} className="single_div">
             <img src={image} alt="categories" className="product_img" />
-            <h2>
-              <i>{type}</i>
-            </h2>
-            <h3>Price : {price}</h3>
-            <span>{rating.rate} by {rating.count} users</span>
-            <button onClick={() => handleCart(product)}>Add to Cart</button>
+            <div>
+              <h3>Price : {price}</h3>
+              <span>{rating.rate} by {rating.count} users</span>
+            </div>
+            <div>
+              <button onClick={() => handleCart(product)}>Add to Cart</button>
+              <button onClick={() => handleCart(product)}>Add to Wishlist</button>
+            </div>
             <Link to={`/product/${id}`}>View More</Link>
           </div>
         );

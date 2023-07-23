@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import Filter from '../../myComponents/Filter/Filter'
-import ProductList from '../../myComponents/productList'
+import Filter from '../../components/Filter/Filter'
+import ProductList from '../../components/ProductList'
 import { useParams } from 'react-router-dom';
 import "./productPage.css"
 
