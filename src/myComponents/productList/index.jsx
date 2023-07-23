@@ -28,7 +28,7 @@ const ProductList = ({ filteredProduct }) => {
   return (
     <div className="main_div">
       {filteredProduct.length > 0 ? filteredProduct.map((product) => {
-        const { id, price, type, image } = product;
+        const { id, price, type, image, rating } = product;
         return (
           <div key={id} className="single_div">
             <img src={image} alt="categories" className="product_img" />
@@ -36,6 +36,7 @@ const ProductList = ({ filteredProduct }) => {
               <i>{type}</i>
             </h2>
             <h3>Price : {price}</h3>
+            <span>{rating.rate} by {rating.count} users</span>
             <button onClick={() => handleCart(product)}>Add to Cart</button>
             <Link to={`/product/${id}`}>View More</Link>
           </div>

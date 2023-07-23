@@ -23,7 +23,6 @@ const Index = (e) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("look into this data", data)
         localStorage.setItem("token", data.encodedToken);
         alert('User created successfully')
         navigate("/")

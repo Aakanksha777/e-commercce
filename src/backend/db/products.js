@@ -10,7 +10,10 @@ export const products = [
     category: "men's clothing",
     categoryId: 2,
     image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    rating: { rate: 3.9, count: 120 },
+    rating: {
+      rate: 1.2,
+      count: 202,
+    },
   },
   {
     id: 2,
@@ -22,7 +25,10 @@ export const products = [
     categoryId: 2,
     image:
       "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-    rating: { rate: 4.1, count: 259 },
+    rating: {
+      rate: 4.9,
+      count: 48,
+    },
   },
   {
     id: 3,
@@ -33,7 +39,10 @@ export const products = [
     category: "men's clothing",
     categoryId: 2,
     image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
-    rating: { rate: 4.7, count: 500 },
+    rating: {
+      rate: 2.5,
+      count: 244,
+    },
   },
   {
     id: 4,
@@ -44,7 +53,10 @@ export const products = [
     category: "men's clothing",
     categoryId: 2,
     image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
-    rating: { rate: 2.1, count: 430 },
+    rating: {
+      rate: 3.8,
+      count: 184,
+    },
   },
   {
     id: 5,
@@ -56,7 +68,10 @@ export const products = [
     category: "jewelery",
     categoryId: 3,
     image: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
-    rating: { rate: 4.6, count: 400 },
+    rating: {
+      rate: 1.8,
+      count: 357,
+    },
   },
   {
     id: 6,
@@ -67,7 +82,10 @@ export const products = [
     category: "jewelery",
     categoryId: 3,
     image: "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
-    rating: { rate: 3.9, count: 70 },
+    rating: {
+      rate: 1.8,
+      count: 94,
+    },
   },
   {
     id: 7,
@@ -78,7 +96,10 @@ export const products = [
     category: "jewelery",
     categoryId: 3,
     image: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
-    rating: { rate: 3, count: 400 },
+    rating: {
+      rate: 4.7,
+      count: 407,
+    },
   },
   {
     id: 8,
@@ -89,7 +110,10 @@ export const products = [
     category: "jewelery",
     categoryId: 3,
     image: "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
-    rating: { rate: 1.9, count: 100 },
+    rating: {
+      rate: 3.6,
+      count: 472,
+    },
   },
   {
     id: 9,
@@ -100,7 +124,10 @@ export const products = [
     category: "electronics",
     categoryId: 4,
     image: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
-    rating: { rate: 3.3, count: 203 },
+    rating: {
+      rate: 1.4,
+      count: 425,
+    },
   },
   {
     id: 10,
@@ -111,7 +138,10 @@ export const products = [
     category: "electronics",
     categoryId: 4,
     image: "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
-    rating: { rate: 2.9, count: 470 },
+    rating: {
+      rate: 2.2,
+      count: 347,
+    },
   },
   {
     id: 11,
@@ -123,7 +153,10 @@ export const products = [
     category: "electronics",
     categoryId: 4,
     image: "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg",
-    rating: { rate: 4.8, count: 319 },
+    rating: {
+      rate: 3.9,
+      count: 194,
+    },
   },
   {
     id: 12,
@@ -135,7 +168,10 @@ export const products = [
     category: "electronics",
     categoryId: 4,
     image: "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg",
-    rating: { rate: 4.8, count: 400 },
+    rating: {
+      rate: 4.5,
+      count: 4,
+    },
   },
   {
     id: 13,
@@ -146,7 +182,10 @@ export const products = [
     category: "electronics",
     categoryId: 4,
     image: "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
-    rating: { rate: 2.9, count: 250 },
+    rating: {
+      rate: 3.8,
+      count: 67,
+    },
   },
   {
     id: 14,
@@ -158,7 +197,10 @@ export const products = [
     category: "electronics",
     categoryId: 4,
     image: "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
-    rating: { rate: 2.2, count: 140 },
+    rating: {
+      rate: 1.9,
+      count: 485,
+    },
   },
   {
     id: 15,
@@ -169,7 +211,10 @@ export const products = [
     category: "women's clothing",
     categoryId: 1,
     image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
-    rating: { rate: 2.6, count: 235 },
+    rating: {
+      rate: 1.3,
+      count: 498,
+    },
   },
   {
     id: 16,
@@ -181,7 +226,10 @@ export const products = [
     category: "women's clothing",
     categoryId: 1,
     image: "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
-    rating: { rate: 2.9, count: 340 },
+    rating: {
+      rate: 2.2,
+      count: 11,
+    },
   },
   {
     id: 17,
@@ -192,7 +240,10 @@ export const products = [
     category: "women's clothing",
     categoryId: 1,
     image: "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
-    rating: { rate: 3.8, count: 679 },
+    rating: {
+      rate: 1.5,
+      count: 390,
+    },
   },
   {
     id: 18,
@@ -203,7 +254,10 @@ export const products = [
     category: "women's clothing",
     categoryId: 1,
     image: "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
-    rating: { rate: 4.7, count: 130 },
+    rating: {
+      rate: 1.8,
+      count: 263,
+    },
   },
   {
     id: 19,
@@ -214,7 +268,10 @@ export const products = [
     category: "women's clothing",
     categoryId: 1,
     image: "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
-    rating: { rate: 4.5, count: 146 },
+    rating: {
+      rate: 4.9,
+      count: 295,
+    },
   },
   {
     id: 20,
@@ -225,6 +282,9 @@ export const products = [
     category: "women's clothing",
     categoryId: 1,
     image: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
-    rating: { rate: 3.6, count: 145 },
+    rating: {
+      rate: 2.8,
+      count: 208,
+    },
   },
 ];

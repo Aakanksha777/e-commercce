@@ -24,7 +24,7 @@ const Homepage = () => {
           </Link>
         ))}
       </div>
-      <h2><Link to="/product" className='homepage-link'>Shop Now &hearts;</Link></h2>
+      <h2><Link to="/category/0" className='homepage-link'>Shop Now &hearts;</Link></h2>
     </>
   )
 }
