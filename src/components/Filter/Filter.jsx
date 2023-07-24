@@ -29,7 +29,7 @@ const Filter = ({ filterItemsByCategory, clearFilter, filterBy, handleInput }) =
       <h3 className='filter-headings'>Category</h3>
       <div>
         <div className="filter-inputs">
-          <input type='radio' name="category" id="All" onChange={handleInput} value={0} checked={filterBy.category === 0} />
+          <input type='radio' name="category" id="All" onChange={handleInput} value="0" checked={filterBy.category === "0"} />
           <label htmlFor="All">All</label>
         </div>
         {categories.length > 0 && categories.map(({ id, categoryName }) => (

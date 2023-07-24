@@ -7,8 +7,8 @@ import "./productPage.css"
 const ratingCondition = (rating, ratingState) => {
   return ratingState ? rating >= ratingState : rating
 }
-const categoryCondition = (categoryId, categoryState) => {
-  return categoryState ? categoryId === categoryState : categoryId
+const categoryCondition = (product, categoryState) => {
+  return categoryState ? product.categoryId === categoryState : product
 }
 const ProductsPage = () => {
   const { id } = useParams();
@@ -16,7 +16,7 @@ const ProductsPage = () => {
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [filterBy, setFilterBy] = useState({
     rating: 0,
-    category: 0,
+    category: "0",
     sortByPrice: null
   })
   useEffect(() => {
@@ -26,9 +26,9 @@ const ProductsPage = () => {
         setAllproducts(data.products)
         let newArray = data.products
         if (id) {
-          const categoryI = Number(id)
-          newArray = newArray.filter(({ categoryId }) => categoryI ? categoryId === categoryI : categoryId)
-          setFilterBy({ ...filterBy, category: categoryI })
+          console.log(typeof id, typeof newArray[0].categoryId);
+          newArray = newArray.filter(({ categoryId }) => id ? categoryId === id : categoryId)
+          setFilterBy({ ...filterBy, category: id })
         }
         setFilteredProduct(newArray)
       })
@@ -36,7 +36,7 @@ const ProductsPage = () => {
   }, [])
 
   const filterItemsByCategory = () => {
-    const newArray = allproducts.filter((product) => categoryCondition(product.categoryId, filterBy.category) && ratingCondition(product.rating.rate, filterBy.rating))
+    const newArray = allproducts.filter((product) => categoryCondition(product, filterBy.category) && ratingCondition(product.rating.rate, filterBy.rating))
     if (filterBy.sortByPrice) {
       newArray.sort((firstEle, secEle) => filterBy.sortByPrice ? secEle.price - firstEle.price : firstEle.price - secEle.price)
     }
@@ -44,7 +44,7 @@ const ProductsPage = () => {
   }
 
   const handleInput = (e) => {
-    setFilterBy({ ...filterBy, [e.target.name]: Number(e.target.value) })
+    setFilterBy({ ...filterBy, [e.target.name]: e.target.value })
   }
 
   const clearFilter = () => {
