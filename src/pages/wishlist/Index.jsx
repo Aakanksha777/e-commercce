@@ -3,7 +3,7 @@ import Wishlist from '../../components/Wishlist/Wishlist'
 import { CartAndWishlistContext } from "../../context/CartAndWishlist"
 import { AuthContext } from '../../context/AuthContext'
 
-const WishlisPage = () => {
+const WishlistPage = () => {
   const { user } = useContext(AuthContext)
   const { wishlist, setWishlist } = useContext(CartAndWishlistContext)
 
@@ -31,4 +31,4 @@ const WishlisPage = () => {
   )
 }
 
-export default WishlisPage
+export default WishlistPage
