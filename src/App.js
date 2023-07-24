@@ -20,10 +20,10 @@ function App() {
           <Navbar />
           <Routes>
             <Route index element={<Homepage />} />
-            <Route path="category/:id" element={<ProductsPage />} />
-            <Route path="product/:id" element={<ProductDetails />} />
-            <Route path="wishlist" element={<WishListPage />} />
-            <Route path="cart" element={<CartPage />} />
+            <Route path="/category/:id" element={<ProductsPage />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/wishlist" element={<WishListPage />} />
+            <Route path="/cart" element={<CartPage />} />
 
             <Route path="/" element={<RequiresAuth />}></Route>
 
