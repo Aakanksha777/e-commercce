@@ -4,7 +4,7 @@ import ProductDetails from "./components/ProductDetails";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ProductsPage from "./pages/products";
-import WishListPage from "./pages/wishlist";
+import WishListPage from "./pages/wishlist/wishlist";
 import CartPage from "./pages/cart";
 import RequiresAuth from "./components/RequiresAuth";
 import Navbar from "./components/Navbar/Navbar";
