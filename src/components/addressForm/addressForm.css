@@ -1,0 +1,51 @@
+.address-form-container {
+    max-width: 400px;
+    margin: 30px auto;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Add styling for the form heading */
+.address-form-container h2 {
+    text-align: center;
+    color: #444;
+}
+
+/* Add styling for the form fields */
+.address-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.address-form input {
+    width: 100%;
+    padding: 4px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+/* Style the submit button */
+.address-form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.address-form button:hover {
+    background-color: #0056b3;
+}
+
+.form-divider {
+    display: flex;
+    gap: 10px;
+}

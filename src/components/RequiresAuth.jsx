@@ -4,6 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 
 const RequiresAuth = () => {
   const { user } = useContext(AuthContext)
+  console.log("token", user.token)
   return (
     <>
       {user.token ? <Outlet /> : <Navigate to="/login" />}

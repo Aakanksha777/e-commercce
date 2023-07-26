@@ -6,6 +6,7 @@ import { Ajax, updateQtyApi } from "../../utlis/apiFunc"
 import { AuthContext } from "../../context/AuthContext";
 import { checkSameAlreadyExist, updateQtyLocal } from "../../utlis/ultis";
 import Popup from "../Popup";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const { cart, setCart, wishlist, setWishlist } = useContext(CartAndWishlistContext);
@@ -122,7 +123,7 @@ const CartPage = () => {
           <hr />
           <div className="cart-order-btn">
             <p className='cart-saving-text'>You will save $ {totalCal.discount} by ordering online</p>
-            <button className='cart-btn'>Place Order</button>
+            <Link to="../address" className='cart-btn'>Place Order</Link>
           </div>
         </div>}
         {showPopUp.status && <Popup>{showPopUp.message}</Popup>}

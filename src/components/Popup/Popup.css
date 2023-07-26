@@ -2,5 +2,10 @@
     display: flex;
     position: fixed;
     top: 100px;
-    right: 50px
+    right: 50px;
+    background: #8fcb8f;
+    padding: 5px 30px 5px 20px;
+    border-radius: 10px;
+    color: white;
+    font-family: sans-serif;
 }

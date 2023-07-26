@@ -11,6 +11,8 @@ import Navbar from "./components/Navbar/Navbar";
 import { AuthProvider } from "./context/AuthContext";
 import { CartAndWishlistProvider } from "./context/CartAndWishlist";
 import Homepage from "./pages/home";
+import AddressManager from "./pages/addressManager";
+import Checkout from "./pages/checkout";
 
 function App() {
   return (
@@ -26,7 +28,10 @@ function App() {
               <Route path="/wishlist" element={<WishListPage />} />
               <Route path="/cart" element={<CartPage />} />
 
-              <Route path="/" element={<RequiresAuth />}></Route>
+              <Route path="/" element={<RequiresAuth />}>
+                <Route path="address" element={<AddressManager />} />
+                <Route path="checkout" element={<Checkout />} />
+              </Route>
 
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
