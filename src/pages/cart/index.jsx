@@ -4,8 +4,8 @@ import { AuthContext } from '../../context/AuthContext'
 import { CartAndWishlistContext } from '../../context/CartAndWishlist'
 
 const CartPage = () => {
-  const { cart, setCart } = useContext(CartAndWishlistContext)
   const { user } = useContext(AuthContext)
+  const { setCart } = useContext(CartAndWishlistContext)
 
   useEffect(() => {
     if (user.token) {
@@ -15,7 +15,6 @@ const CartPage = () => {
       }).then((res) => res.json())
         .then((data) => {
           setCart(data.cart)
-          console.log("get call", data.cart);
         })
         .catch((e) => console.log("Error is ", e))
     } else {
@@ -25,9 +24,7 @@ const CartPage = () => {
   }, [])
 
   return (
-    <div>
-      <Cart cart={cart} />
-    </div>
+    <Cart />
   )
 }
 

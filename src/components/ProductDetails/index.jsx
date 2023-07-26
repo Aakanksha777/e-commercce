@@ -15,15 +15,18 @@ const ProductDetails = () => {
       });
   }, []);
 
+
   if (Object.keys(singleProduct).length) {
-    const { image, name, price, rating, type } = singleProduct;
+    const { title, category, categoryId, description, id, image, price, rating } = singleProduct
+    const { rate, count } = rating
+
     return (
       <div>
         <img src={image} alt="product" />
-        <h1>{name}</h1>
+        <h1>{title}</h1>
         <h3>{price}</h3>
-        <p>{rating}</p>
-        <i>{type}</i>
+        <p>{rate}</p>
+        <i>{description}</i>
       </div>
     );
   }

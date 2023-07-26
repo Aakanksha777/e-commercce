@@ -3,39 +3,45 @@ import "./productList.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { CartAndWishlistContext } from "../../context/CartAndWishlist";
-import { Ajax, updateItemQuantity } from "../../utlis/apiFunc";
-
-const checkSameAlreadyExist = (list, item) => list.find(ele => ele.id === item.id)
+import { Ajax, updateQtyApi } from "../../utlis/apiFunc";
+import { checkSameAlreadyExist, updateQtyLocal } from "../../utlis/ultis"
 
 const ProductList = ({ filteredProduct }) => {
   // context
   const { user } = useContext(AuthContext);
   const { cart, wishlist, setCart, setWishlist } = useContext(CartAndWishlistContext);
+
   //most difficult function
   const incrementProduct = async (product) => {
     if (user.token) {
-      const response = await updateItemQuantity(product.id, "increment", user.token)
+      const response = await updateQtyApi(product.id, "increment", user.token)
       setCart(response.cart)
     } else {
-      const incrementedProduct = cart.map((ele) => {
-        if (ele.id === product.id) ele.qty += 1
-        return ele
-      })
-      setCart(incrementedProduct)
+      setCart(updateQtyLocal(product, "increment", cart))
     }
   }
 
-  const handleAddProduct = async (product, toLocation) => {
-    if (toLocation === "cart" && checkSameAlreadyExist(cart, product)) {
-      toLocation === "cart" && await incrementProduct(product)
+  const handleAddToCart = async (product) => {
+    // checking if the item is already present inside the array , if yes then we need to increase the qty instead adding.
+    if (checkSameAlreadyExist(cart, product)) {
+      await incrementProduct(product)
       return
     }
-    if (toLocation === "wishlist" && checkSameAlreadyExist(wishlist, product)) return
     if (user.token) {
-      const response = await Ajax(`/api/user/${toLocation}`, user.token, JSON.stringify({ product: product }), "post")
-      toLocation === "cart" ? setCart(response[toLocation]) : setWishlist(response[toLocation])
+      const response = await Ajax(`/api/user/cart`, user.token, JSON.stringify({ product: product }), "post")
+      setCart(response.cart)
     } else {
-      toLocation === "cart" ? setCart([...cart, product]) : setWishlist([...wishlist, product])
+      setCart([...cart, product])
+    }
+  };
+
+  const handleAddToWishlist = async (product) => {
+    if (checkSameAlreadyExist(wishlist, product)) return
+    if (user.token) {
+      const response = await Ajax(`/api/user/wishlist`, user.token, JSON.stringify({ product: product }), "post")
+      setWishlist(response.wishlist)
+    } else {
+      setWishlist([...wishlist, product])
     }
   };
 
@@ -53,11 +59,11 @@ const ProductList = ({ filteredProduct }) => {
             <div>
               <button onClick={() => {
                 !product.qty && (product.qty = 1)
-                handleAddProduct(product, "cart")
+                handleAddToCart(product)
               }}>
                 Add to Cart
               </button>
-              <button onClick={() => handleAddProduct(product, "wishlist")}>Add to Wishlist</button>
+              <button onClick={() => handleAddToWishlist(product)}>Add to Wishlist</button>
             </div>
             <Link to={`/product/${id}`}>View More</Link>
           </div>

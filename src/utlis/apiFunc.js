@@ -14,14 +14,11 @@ export const Ajax = async (url, token, body, method) => {
   }
 };
 
-export const updateItemQuantity = async (productId, changeType, token) => {
+export const updateQtyApi = async (productId, changeType, token) => {
   return await Ajax(
     `/api/user/cart/${productId}`,
     token,
     JSON.stringify({ action: { type: changeType } }),
     "post"
   );
-};
-export const deleteItem = async (productId, token) => {
-  return await Ajax(`/api/user/cart/${productId}`, token, null, "DELETE");
 };

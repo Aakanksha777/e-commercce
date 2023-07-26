@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthContext'
 
 const WishlistPage = () => {
   const { user } = useContext(AuthContext)
-  const { wishlist, setWishlist } = useContext(CartAndWishlistContext)
+  const { setWishlist } = useContext(CartAndWishlistContext);
 
   useEffect(() => {
     if (user.token) {
@@ -14,7 +14,6 @@ const WishlistPage = () => {
         headers: { authorization: token }
       }).then((res) => res.json())
         .then((data) => {
-          console.log("get call wishlist", data.wishlist);
           setWishlist(data.wishlist)
         })
         .catch((e) => console.log("Error is ", e))
@@ -26,7 +25,7 @@ const WishlistPage = () => {
 
   return (
     <div>
-      <Wishlist wishlist={wishlist} />
+      <Wishlist />
     </div>
   )
 }
