@@ -22,7 +22,7 @@ const ProductCard = ({ product, removeProductLocal, removeProductApi, incrmntDcr
     }
 
     if (product) {
-        const { id, image, productname, price, discount, qty } = product
+        const { id, title, image, productname, price, qty } = product
         return (
             <div key={id} className="cart-product-description">
                 <img
@@ -30,21 +30,26 @@ const ProductCard = ({ product, removeProductLocal, removeProductApi, incrmntDcr
                     src={image}
                     alt="product"
                 />
-                <h5>{productname}</h5>
-                <div className="cart-price-box">
-                    <h3 className="cart-price">${price}</h3>
-                    <h3 className="cart-price-lineThrough">${Math.round(price + Math.random() * 10)}</h3>
+                <div className='info-container'>
+                    <h3>{title}</h3>
+                    <h5>{productname}</h5>
+                    <div className="cart-price-box">
+                        <h3 className="cart-price">${price}</h3>
+                        <h3 className="cart-price-lineThrough">${Math.round(price + Math.random() * 10)}</h3>
+                    </div>
+                    {!isWishList && <div className="cart-quantity-box">
+                        <button onClick={() => handleChangeQty(product, "increment")}>+</button>
+                        <p className="cart-quantity">{qty}</p>
+                        <button onClick={() => handleChangeQty(product, "decrement")}>-</button>
+                    </div>}
+
+
                 </div>
-                {!isWishList && <div className="cart-quantity-box">
-                    <button onClick={() => handleChangeQty(product, "increment")}>+</button>
-                    <p className="cart-quantity">{qty}</p>
-                    <button onClick={() => handleChangeQty(product, "decrement")}>-</button>
-                </div>}
-                <p className="cart-saving-text">{discount}</p>
                 <div className="btn-box">
                     <button onClick={() => handleRemoveProduct(product)} className="cart-btn1"> Remove From {!isWishList ? 'Cart' : 'Wishlist'}</button>
                     <button className="cart-btn1" onClick={() => handleMoveProduct(product)}>Move To  {!isWishList ? 'Wishlist' : 'Cart'} </button>
                 </div>
+
             </div>
         )
     }

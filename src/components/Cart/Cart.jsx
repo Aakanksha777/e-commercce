@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Cart.css";
 import ProductCard from "../ProductCard"
 import { CartAndWishlistContext } from "../../context/CartAndWishlist";
@@ -9,18 +9,29 @@ import { checkSameAlreadyExist, updateQtyLocal } from "../../utlis/ultis";
 const CartPage = () => {
   const { cart, setCart, wishlist, setWishlist } = useContext(CartAndWishlistContext);
   const { user } = useContext(AuthContext)
-  const cartProductDetail = {
-    orderDetails: [
-      {
-        price: "INR 2,000",
-        discount: "-INR 1,000",
-        charges: "INR 499",
-        totalAmount: "INR 2499",
-        saving: "INR 1,000",
-      },
-    ],
-  };
+  const [totalCal, setTotalCal] = useState({
+    price: 0,
+    discount: 0,
+    charges: 0,
+    totalAmount: 0,
+    saving: 0,
+    deliveryCharges: 0
+  },)
+  useEffect(() => {
+    calculatePrice()
+  }, [cart])
 
+  const calculatePrice = () => {
+    const { totalPrice, totalMrp } = cart.reduce((acc, curr) => {
+      acc.totalPrice = acc.totalPrice + curr.price
+      acc.totalMrp = acc.totalMrp + curr.mrp
+      return acc
+    }, { totalPrice: 0, totalMrp: 0 })
+    const discount = Math.floor(totalMrp - totalPrice)
+    const charges = Math.floor((totalPrice * 18) / 100)
+    const totalAmount = Math.floor(totalPrice + charges)
+    setTotalCal({ price: Math.floor(totalPrice), discount: discount, totalAmount: totalAmount, charges: charges })
+  }
   const incrmntDcrmntQtyApi = async (product, changeType) => {
     const response = await updateQtyApi(product.id, changeType, user.token)
     setCart(response.cart)
@@ -75,26 +86,22 @@ const CartPage = () => {
           )}
         </div>
         {/* Cart Items Total Price  */}
-        <div className='cart-product-price'>
+        {cart.length > 0 && <div className='cart-product-price'>
           <h3 className='cart-price-header'>Price Details </h3>
           <hr />
-          {cartProductDetail.orderDetails.map(({ price, discount, charges, totalAmount, saving }) => (
-            <>
-              <div className="cart-all-details">
-                <p>Price : {price}</p>
-                <p>Discount : -{discount}</p>
-                <p>Delivery Charges : {charges}</p>
-                <h3 className='cart-total-amount'>TOTAL AMOUNT : {totalAmount}</h3>
-              </div>
-              <hr />
-              <div className="cart-order-btn">
-                <p className='cart-saving-text'>You will save Rs.{saving} by ordering online</p>
-                <button className='cart-btn'>Place Order</button>
-              </div>
-            </>
-          ))}
-
-        </div>
+          <div className="cart-all-details">
+            <p>Price : $ {totalCal.price ? totalCal.price : "0"}</p>
+            <p>Discount : $ -{totalCal.discount ? totalCal.discount : "0"}</p>
+            <p>GST Charges :$ {totalCal.charges ? totalCal.charges : "0"}</p>
+            <p>Delivery Charges :$ {totalCal.deliveryCharges ? totalCal.deliveryCharges : "0"}</p>
+            <h3 className='cart-total-amount'>TOTAL AMOUNT : ${totalCal.totalAmount ? totalCal.totalAmount : "0"}</h3>
+          </div>
+          <hr />
+          <div className="cart-order-btn">
+            <p className='cart-saving-text'>You will save $ {totalCal.discount} by ordering online</p>
+            <button className='cart-btn'>Place Order</button>
+          </div>
+        </div>}
       </div>
     </>
   );

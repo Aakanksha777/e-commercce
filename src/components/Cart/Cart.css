@@ -9,8 +9,8 @@
 }
 
 .cart-side-image {
-    width: 70px;
-    height: 70px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
 }
 
@@ -18,23 +18,45 @@
     max-width: 65%;
     width: 100%;
     padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 .cart-quantity-box {
     display: flex;
-    justify-content: center;
     margin: 5px;
+    align-items: center;
+}
+
+.cart-quantity-box button {
+    font-size: 24px;
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border: none;
 }
 
 .cart-product-description {
     display: flex;
     align-items: flex-start;
+    padding: 20px;
+    max-height: 200px;
+    height: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.cart-quantity {
+    font-size: 20px;
+}
+
+.info-container {
+    width: 100%;
+    max-width: 400px;
 }
 
 .cart-price-box {
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -51,6 +73,7 @@
 
 .cart-product-price {
     align-self: flex-start;
+    text-align: left;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
     padding: 30px;
 }
