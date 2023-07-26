@@ -5,10 +5,15 @@ import { CartAndWishlistContext } from "../../context/CartAndWishlist";
 import { Ajax, updateQtyApi } from "../../utlis/apiFunc"
 import { AuthContext } from "../../context/AuthContext";
 import { checkSameAlreadyExist, updateQtyLocal } from "../../utlis/ultis";
+import Popup from "../Popup";
 
 const CartPage = () => {
   const { cart, setCart, wishlist, setWishlist } = useContext(CartAndWishlistContext);
   const { user } = useContext(AuthContext)
+  const [showPopUp, setShowPopUp] = useState({
+    status: false,
+    message: ""
+  })
   const [totalCal, setTotalCal] = useState({
     price: 0,
     discount: 0,
@@ -21,6 +26,23 @@ const CartPage = () => {
     calculatePrice()
   }, [cart])
 
+  useEffect(() => {
+    let timeOut
+    if (showPopUp.status) {
+      timeOut = setTimeout(() => {
+        setShowPopUp({
+          status: false,
+          message: ""
+        })
+      }, 2000)
+    }
+    return () => {
+      clearTimeout(timeOut)
+    }
+  }, [showPopUp])
+  const handleShowPopUp = (mes) => {
+    setShowPopUp({ status: true, message: mes })
+  }
   const calculatePrice = () => {
     const { totalPrice, totalMrp } = cart.reduce((acc, curr) => {
       acc.totalPrice = acc.totalPrice + curr.price
@@ -76,6 +98,7 @@ const CartPage = () => {
                   removeProductLocal={removeProductLocal}
                   moveProductApi={moveProductApi}
                   moveProductLocal={moveProductLocal}
+                  handleShowPopUp={handleShowPopUp}
                 />
               )
             )
@@ -102,6 +125,7 @@ const CartPage = () => {
             <button className='cart-btn'>Place Order</button>
           </div>
         </div>}
+        {showPopUp.status && <Popup>{showPopUp.message}</Popup>}
       </div>
     </>
   );

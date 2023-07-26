@@ -3,11 +3,16 @@ import Filter from '../../components/Filter/Filter'
 import ProductList from '../../components/ProductList'
 import { useParams } from 'react-router-dom';
 import "./productPage.css"
+import Popup from '../../components/Popup';
 
 const ProductsPage = () => {
   const { id } = useParams();
   const [allproducts, setAllproducts] = useState([])
   const [filteredProduct, setFilteredProduct] = useState([]);
+  const [showPopUp, setShowPopUp] = useState({
+    status: false,
+    message: ""
+  })
   const [filterBy, setFilterBy] = useState({
     rating: 0,
     category: "0",
@@ -27,6 +32,25 @@ const ProductsPage = () => {
       })
       .catch((e) => console.log("Error is ", e))
   }, [])
+
+  const handleShowPopUp = (mes) => {
+    setShowPopUp({ status: true, message: mes })
+  }
+
+  useEffect(() => {
+    let timeOut
+    if (showPopUp.status) {
+      timeOut = setTimeout(() => {
+        setShowPopUp({
+          status: false,
+          message: ""
+        })
+      }, 2000)
+    }
+    return () => {
+      clearTimeout(timeOut)
+    }
+  }, [showPopUp])
 
   const filterItemsByCategory = () => {
     let { category, rating } = filterBy
@@ -54,9 +78,9 @@ const ProductsPage = () => {
 
   return (
     <div className="product-page" style={{ display: "flex" }}>
-      {/* <h2>{ }</h2> */}
       <Filter clearFilter={clearFilter} filterBy={filterBy} handleInput={handleInput} filterItemsByCategory={filterItemsByCategory} />
-      <ProductList filteredProduct={filteredProduct} />
+      <ProductList handleShowPopUp={handleShowPopUp} filteredProduct={filteredProduct} />
+      {showPopUp.status && <Popup>{showPopUp.message}</Popup>}
     </div>
   )
 }

@@ -1,17 +1,39 @@
 import './Wishlist.css'
 import ProductCard from '../ProductCard'
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartAndWishlistContext } from '../../context/CartAndWishlist';
 import { AuthContext } from '../../context/AuthContext';
 import { Ajax, updateQtyApi } from '../../utlis/apiFunc';
 import { checkSameAlreadyExist, updateQtyLocal } from '../../utlis/ultis';
+import Popup from '../Popup';
 
 const Wishlist = () => {
   const { cart, setCart, setWishlist, wishlist } = useContext(CartAndWishlistContext);
   const { user } = useContext(AuthContext)
-
+  const [showPopUp, setShowPopUp] = useState({
+    status: false,
+    message: ""
+  })
+  useEffect(() => {
+    let timeOut
+    if (showPopUp.status) {
+      timeOut = setTimeout(() => {
+        setShowPopUp({
+          status: false,
+          message: ""
+        })
+      }, 2000)
+    }
+    return () => {
+      clearTimeout(timeOut)
+    }
+  }, [showPopUp])
+  const handleShowPopUp = (mes) => {
+    setShowPopUp({ status: true, message: mes })
+  }
   const removeProductApi = async (product) => {
-    const response = await Ajax(`/api/user/cart/${product.id}`, user.token, null, "DELETE");
+    const response = await Ajax(`/api/user/wishlist/${product.id}`, user.token, null, "DELETE");
+    console.log(response)
     setWishlist(response.wishlist)
   }
 
@@ -54,10 +76,12 @@ const Wishlist = () => {
             moveProductApi={moveProductApi}
             moveProductLocal={moveProductLocal}
             isWishList={true}
+            handleShowPopUp={handleShowPopUp}
           />
         )) :
           <div>No items in Wishlist</div>}
       </div>
+      {showPopUp.status && <Popup>{showPopUp.message}</Popup>}
     </>
   )
 }

@@ -1,8 +1,8 @@
 import React from 'react'
-
-const Popup = ({children}) => {
+import "./Popup.css"
+const Popup = ({ children }) => {
   return (
-    <div>
+    <div className='notifcation-popup'>
       {children}
     </div>
   )

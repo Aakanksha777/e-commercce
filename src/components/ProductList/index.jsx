@@ -6,7 +6,7 @@ import { CartAndWishlistContext } from "../../context/CartAndWishlist";
 import { Ajax, updateQtyApi } from "../../utlis/apiFunc";
 import { checkSameAlreadyExist, updateQtyLocal } from "../../utlis/ultis"
 
-const ProductList = ({ filteredProduct }) => {
+const ProductList = ({ filteredProduct, handleShowPopUp }) => {
   // context
   const { user } = useContext(AuthContext);
   const { cart, wishlist, setCart, setWishlist } = useContext(CartAndWishlistContext);
@@ -25,6 +25,7 @@ const ProductList = ({ filteredProduct }) => {
     // checking if the item is already present inside the array , if yes then we need to increase the qty instead adding.
     if (checkSameAlreadyExist(cart, product)) {
       await incrementProduct(product)
+      handleShowPopUp("Product Quantity Increased in Cart")
       return
     }
     if (user.token) {
@@ -33,6 +34,7 @@ const ProductList = ({ filteredProduct }) => {
     } else {
       setCart([...cart, product])
     }
+    handleShowPopUp("Product Added to Cart")
   };
 
   const handleAddToWishlist = async (product) => {
@@ -43,6 +45,7 @@ const ProductList = ({ filteredProduct }) => {
     } else {
       setWishlist([...wishlist, product])
     }
+    handleShowPopUp("Product Added to Wishlist")
   };
 
   return (

@@ -1,24 +1,27 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext';
 
-const ProductCard = ({ product, removeProductLocal, removeProductApi, incrmntDcrmntQtyLocal, incrmntDcrmntQtyApi, moveProductLocal, moveProductApi, isWishList }) => {
+const ProductCard = ({ product, removeProductLocal, removeProductApi, incrmntDcrmntQtyLocal, incrmntDcrmntQtyApi, moveProductLocal, moveProductApi, isWishList, handleShowPopUp }) => {
     const { user } = useContext(AuthContext);
 
     const handleChangeQty = async (product, changeType) => {
         if (!isWishList) {
             user.token ?
                 await incrmntDcrmntQtyApi(product, changeType) : incrmntDcrmntQtyLocal(product, changeType)
+            handleShowPopUp("Quantity Changed of the Product")
         }
     }
 
     const handleRemoveProduct = async (product) => {
         user.token ?
             removeProductApi(product) : removeProductLocal(product)
+        handleShowPopUp(`Product Removed From The ${isWishList ? "Wishlist" : "Cart"}`)
     }
 
     const handleMoveProduct = async (product) => {
         user.token ?
             moveProductApi(product) : moveProductLocal(product)
+        handleShowPopUp(`Product Moved To The ${isWishList ? "Cart" : "Wishlist"}`)
     }
 
     if (product) {
