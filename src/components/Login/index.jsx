@@ -4,6 +4,8 @@ import { AuthContext } from "../../context/AuthContext";
 import { Ajax } from "../../utlis/apiFunc"
 import { CartAndWishlistContext } from "../../context/CartAndWishlist";
 
+import './Login.css'
+
 export default function Login() {
   const navigate = useNavigate();
   const { setUser } = useContext(AuthContext)
@@ -43,8 +45,8 @@ export default function Login() {
   return (
     <>
       <div className="login">
-        <h2 className="login-header">Sign In to your Account</h2>
         <form className="loginBox" onSubmit={handleLoginSubmit}>
+        <h1 className="login-header">Sign in</h1>
           <input
             placeholder="Email"
             className="loginInput"

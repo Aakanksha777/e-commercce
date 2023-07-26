@@ -53,8 +53,7 @@ const ProductsPage = () => {
   }
 
   return (
-    <div className="product-page" style={{ display: "flex" }}>
-      {/* <h2>{ }</h2> */}
+    <div className="product-page">
       <Filter clearFilter={clearFilter} filterBy={filterBy} handleInput={handleInput} filterItemsByCategory={filterItemsByCategory} />
       <ProductList filteredProduct={filteredProduct} />
     </div>

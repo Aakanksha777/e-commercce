@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext';
 
+import './ProductCard.css'
+
 const ProductCard = ({ product, removeProductLocal, removeProductApi, incrmntDcrmntQtyLocal, incrmntDcrmntQtyApi, moveProductLocal, moveProductApi, isWishList }) => {
     const { user } = useContext(AuthContext);
 
@@ -36,9 +38,9 @@ const ProductCard = ({ product, removeProductLocal, removeProductApi, incrmntDcr
                     <h3 className="cart-price-lineThrough">${Math.round(price + Math.random() * 10)}</h3>
                 </div>
                 {!isWishList && <div className="cart-quantity-box">
-                    <button onClick={() => handleChangeQty(product, "increment")}>+</button>
+                    <button onClick={() => handleChangeQty(product, "increment")} className='plus-btn'>+</button>
                     <p className="cart-quantity">{qty}</p>
-                    <button onClick={() => handleChangeQty(product, "decrement")}>-</button>
+                    <button onClick={() => handleChangeQty(product, "decrement")} className='minus-btn'>-</button>
                 </div>}
                 <p className="cart-saving-text">{discount}</p>
                 <div className="btn-box">

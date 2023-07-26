@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import './ProductDetails.css'
+
 const ProductDetails = () => {
   const [singleProduct, setSingleProduct] = useState({});
   const { id } = useParams();
@@ -21,13 +23,21 @@ const ProductDetails = () => {
     const { rate, count } = rating
 
     return (
-      <div>
-        <img src={image} alt="product" />
-        <h1>{title}</h1>
-        <h3>{price}</h3>
-        <p>{rate}</p>
-        <i>{description}</i>
+      <>
+        <h1>{title} Details</h1>
+      <div className="main-container">
+        <div>
+        <img src={image} alt="product" className="product-detail-image"/>
+        </div>
+        <div className="details">
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <h2>Price : &#128178; {price}</h2>
+        <hr/>
+        <h2>Rating : {rate} &#11088;</h2>
+        </div>
       </div>
+      </>
     );
   }
 

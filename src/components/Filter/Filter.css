@@ -1,44 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .filter-container {
-    max-width: 20%;
-    width: 100%;
-    padding: 20px;
+    max-width: 30%;
+    width: 30%;
+    text-align: left;
     position: sticky;
     overflow: auto;
     max-height: 80vh;
-    align-self: flex-start;
     top: 0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.filter-headings-top {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-}
-
-.filter-headings-top h3 {
-    font-size: 22px;
-}
-
-.filter-headings {
-    display: flex;
-    justify-content: flex-start;
-    padding: 25px 5px 10px;
+.filter-headings, .filter-inputs , .filter-inputs input{
     cursor: pointer;
-}
-
-.filter-inputs {
-    display: flex;
-    cursor: pointer;
-    gap: 15px;
-    padding-bottom: 10px;
-    padding-left: 10px;
 }
 
 .filter-inputs input {
-    cursor: pointer;
-    font-size: 18px;
-    width: 25px;
+    width: 15%;
 }
 
 .filter-inputs label {
@@ -46,5 +27,18 @@
 }
 
 .filter-inputs input[type="range"] {
-    width: 100%;
+    width: 80%;
+}
+.filter-btn-box {
+    display: flex;
+    justify-content: space-around;
+
+}
+.filter-btn {
+    padding: 0.7em;
+    border-radius: 5px;
+    background-color:rgb(241, 188, 89);
+    color: aliceblue;
+    border: none;
+    font-size: large;
 }
