@@ -51,7 +51,7 @@ const ProductCard = ({ product, removeProductLocal, removeProductApi, incrmntDcr
                     <button className="cart-btn1" onClick={() => handleMoveProduct(product)}>Move To  {!isWishList ? 'Wishlist' : 'Cart'} </button>
                 </div>
 
-            </div >
+            </div>
         )
     }
     return <div>Sorry Product Can't be render</div>
