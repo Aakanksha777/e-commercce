@@ -2,8 +2,7 @@
     display: flex;
     justify-content: space-evenly;
     margin-inline: auto;
-    border: 1px solid purple;
-    width: 50%;
+
 }
 
 .cart-header {

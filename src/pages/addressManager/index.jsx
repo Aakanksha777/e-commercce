@@ -26,6 +26,9 @@ const AddressManager = () => {
         setCart(response[0].cart)
         setConfirmOrder(true)
     }
+    const handleConfirmOrder = (bool) => {
+        setConfirmOrder(bool)
+    }
     return (
         <div className='address-manager'>
             <h2>Saved Address</h2>
@@ -58,7 +61,18 @@ const AddressManager = () => {
                     </div>
                 </div>
             )}
-            {confirmOrder && <Link to="../checkout" className='confirm-btn'>Confirm you Order</Link>}
+            {confirmOrder && <div className="modal-overlay">
+                <div className="modal-content">
+                    <span className="modal-close" onClick={() => handleConfirmOrder(true)}>
+                        &times;
+                    </span>
+                    <div className='text-info'>
+                        <div>Please click on Confirm button to place the Order. Your order will be delivered before 5 working days. Payment option is COD</div>
+                        <Link to="../checkout" className='confirm-btn'>Confirm you Order</Link>
+                    </div>
+                </div>
+            </div>
+            }
         </div>
     )
 }
