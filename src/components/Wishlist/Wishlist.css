@@ -1,6 +1,19 @@
 .wishlist-main-container {
     display: flex;
-    margin: 50px;
+    margin: 50px 0;
+    gap: 25px;
+}
+
+.wishlist-main-container .cart-product-description {
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    max-height: unset;
+    height: unset;
+    max-width: 400px;
+    text-align: left;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .wishlist-container {

@@ -16,7 +16,9 @@ export default function Login() {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
+    console.log("log", loginData);
     const response = await Ajax("/api/auth/login", undefined, JSON.stringify(loginData), "post")
+    console.log(response)
     if (response.foundUser) {
       const fullUser = { ...response.foundUser, token: response.encodedToken }
       localStorage.setItem('user', JSON.stringify(fullUser))
