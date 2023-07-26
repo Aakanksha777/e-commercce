@@ -13,6 +13,7 @@ export const users = [
     cart: [],
     addresses: [
       {
+        id: 1,
         firstname: "",
         lastname: "",
         phone: "",
@@ -24,6 +25,7 @@ export const users = [
         country: "United States",
       },
     ],
+    latestOrder: {},
     username: "surya0796",
     password: "123",
     name: { firstname: "surya", lastname: "saini" },
@@ -32,6 +34,7 @@ export const users = [
     id: 12,
     email: "aakanksha@gmail.com",
     cart: [],
+    latestOrder: {},
     addresses: [],
     username: "aakanksha0796",
     password: "123",

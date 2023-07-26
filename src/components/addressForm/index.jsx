@@ -23,7 +23,8 @@ const AddressForm = ({ handleCloseForm }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setUser({ ...user, addresses: [user.addresses, formData] })
+        formData.id = Math.floor((Math.random() * 1123))
+        setUser({ ...user, addresses: [...user.addresses, formData] })
         console.log(formData);
     };
 

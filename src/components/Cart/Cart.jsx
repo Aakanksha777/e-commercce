@@ -6,11 +6,12 @@ import { Ajax, updateQtyApi } from "../../utlis/apiFunc"
 import { AuthContext } from "../../context/AuthContext";
 import { checkSameAlreadyExist, updateQtyLocal } from "../../utlis/ultis";
 import Popup from "../Popup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   const { cart, setCart, wishlist, setWishlist } = useContext(CartAndWishlistContext);
-  const { user } = useContext(AuthContext)
+  const { user, setUser } = useContext(AuthContext)
+  const navigate = useNavigate()
   const [showPopUp, setShowPopUp] = useState({
     status: false,
     message: ""
@@ -82,6 +83,11 @@ const CartPage = () => {
     if (checkSameAlreadyExist(wishlist, product)) return
     setWishlist([...wishlist, product])
   }
+  const handlePlaceOrder = () => {
+    const randomId = Math.floor((Math.random() * 1123))
+    setUser({ ...user, latestOrder: { products: cart, id: randomId, address: {}, deliveryStatus: {} } })
+    navigate("/address")
+  }
   return (
     <>
       <h2 className="cart-header">My Cart</h2>
@@ -123,7 +129,7 @@ const CartPage = () => {
           <hr />
           <div className="cart-order-btn">
             <p className='cart-saving-text'>You will save $ {totalCal.discount} by ordering online</p>
-            <Link to="../address" className='cart-btn'>Place Order</Link>
+            <button onClick={handlePlaceOrder} className='cart-btn'>Place Order</button>
           </div>
         </div>}
         {showPopUp.status && <Popup>{showPopUp.message}</Popup>}
