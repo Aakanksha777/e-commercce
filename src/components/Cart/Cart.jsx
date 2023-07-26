@@ -91,8 +91,9 @@ const CartPage = () => {
   return (
     <>
       <h2 className="cart-header">My Cart</h2>
+      <h3> Cart Items : {cart.length} </h3>
+       
       <div className="main-cart-page">
-        {/* Cart Items */}
         <div className="cart-product-page">
           {cart.length > 0 ? (
             cart.map(

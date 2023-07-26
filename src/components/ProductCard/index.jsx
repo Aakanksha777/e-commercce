@@ -45,15 +45,13 @@ const ProductCard = ({ product, removeProductLocal, removeProductApi, incrmntDcr
                         <p className="cart-quantity">{qty}</p>
                         <button onClick={() => handleChangeQty(product, "decrement")}>-</button>
                     </div>}
-
-
                 </div>
                 <div className="btn-box">
                     <button onClick={() => handleRemoveProduct(product)} className="cart-btn1"> Remove From {!isWishList ? 'Cart' : 'Wishlist'}</button>
                     <button className="cart-btn1" onClick={() => handleMoveProduct(product)}>Move To  {!isWishList ? 'Wishlist' : 'Cart'} </button>
                 </div>
 
-            </div>
+            </div >
         )
     }
     return <div>Sorry Product Can't be render</div>

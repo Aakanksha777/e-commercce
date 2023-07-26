@@ -16,16 +16,10 @@ const Filter = ({ filterItemsByCategory, clearFilter, filterBy, handleInput }) =
       <div className='filter-headings-top'>
         <h3>Filters</h3>
       </div>
-      {/* This price is not needed for now. I will make this filter after I submit my project */}
-      {/* <h3 className='filter-headings'>Price</h3>
-      <div className="filter-inputs" style={{ flexDirection: "column", alignItems: "flex-start " }}>
-        <div style={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
-          <span>$5</span>
-          <span>$10000+</span>
-        </div>
-        <input min={5} max={10000} type='range' value={filterBy.price} name="price" onChange={handleInput} />
-        <span>${filterBy.price}</span>
-      </div> */}
+      <div className='filter-btn-box'>
+        <button onClick={clearFilter} className='filter-btn' >Clear</button>
+        <button onClick={filterItemsByCategory}className='filter-btn' > Apply</button>
+      </div>
       <h3 className='filter-headings'>Category</h3>
       <div>
         <div className="filter-inputs">
@@ -53,10 +47,7 @@ const Filter = ({ filterItemsByCategory, clearFilter, filterBy, handleInput }) =
         <input type='radio' name="sortByPrice" id="hightolow" onChange={handleInput} value={1} checked={filterBy.sortByPrice === 1} />
         <label htmlFor='hightolow'>Price-High to low</label>
       </div>
-      <div>
-        <button onClick={clearFilter}>Clear</button>
-        <button onClick={filterItemsByCategory}> Apply</button>
-      </div>
+     
 
     </div>
   )

@@ -1,0 +1,11 @@
+.cart-product-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.plus-btn , .minus-btn{
+    padding-inline: 0.3em;
+    font-size: 25px;
+}

@@ -22,21 +22,17 @@ const Navbar = () => {
       <Link to="/" className="leftside-navbar">TRENDY</Link>
       <div className="rightside-navbar">
         <div className="icon-list-navbar">
-          <div className='navbar-items'>
-            <Link to="/category/0"><AiOutlineSearch /></Link>
-          </div>
-          <div className='navbar-items'>
-            <Link to="/wishlist"><AiOutlineHeart /></Link>
-          </div>
-          <div className='navbar-items'>
-            <Link to="/cart"><AiOutlineShoppingCart /></Link>
+          <div className='navbar-items-box'>
+            <Link to="/category/0" className='navbar-items'><AiOutlineSearch /></Link>
+            <Link to="/wishlist" className='navbar-items'><AiOutlineHeart /></Link>
+            <Link to="/cart" className='navbar-items'><AiOutlineShoppingCart /></Link>
           </div>
           <div className='navbar-items'>
             {user.email ?
               <span onClick={handleLogout}>Log out</span>
               :
-              <span className='links'>
-                <Link to='/login'>Log in</Link>
+              <span >
+                <Link to='/login' className='links'>Log in</Link>
               </span>
             }
           </div>

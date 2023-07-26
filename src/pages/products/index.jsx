@@ -77,7 +77,7 @@ const ProductsPage = () => {
   }
 
   return (
-    <div className="product-page" style={{ display: "flex" }}>
+    <div className="product-page">
       <Filter clearFilter={clearFilter} filterBy={filterBy} handleInput={handleInput} filterItemsByCategory={filterItemsByCategory} />
       <ProductList handleShowPopUp={handleShowPopUp} filteredProduct={filteredProduct} />
       {showPopUp.status && <Popup>{showPopUp.message}</Popup>}
