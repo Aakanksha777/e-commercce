@@ -1,32 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./homePage.css";
+import Carousel from "../../components/Carousel/Carousel";
 
 const Homepage = () => {
-  const [category, setCategory] = useState([])
+  const [category, setCategory] = useState([]);
 
   useEffect(() => {
     fetch("/api/categories")
       .then((res) => res.json())
-      .then((data) => setCategory(data.categories))
-      .catch((e) => console.log("Erros is ", e))
-  }, [])
+      .then((data) => {
+        const dataArray = data.categories;
+        setCategory(dataArray);
+        console.log("dataArray", dataArray);
+      })
+      .catch((e) => console.log("Erros is ", e));
+  }, []);
 
   return (
     <>
       <div className="main-div-homePage">
-        {category.map(({ id, img, categoryName }) => (
-          <Link key={id} to={`/category/${id}`}>
-            <div className='data-div'>
-              <img src={img} alt="categories" className='data-img' />
-              <h3><i>{categoryName}</i></h3>
-            </div>
-          </Link>
-        ))}
+        <div className="data-container">
+          {category.map(({ id, img, categoryName }) => (
+            <Link key={id} to={`/category/${id}`}>
+              <div className="data-div">
+                <img src={img} alt="categories" className="data-img" />
+                <i className="category-text">{categoryName}</i>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <Carousel />
+        <div className="new-arrival-container">
+          <h3 className="new-arrival-header">NEW ARRIVAL</h3>
+        </div>
       </div>
-      <h2><Link to="/category/0" className='homepage-link'>Shop Now &hearts;</Link></h2>
     </>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;

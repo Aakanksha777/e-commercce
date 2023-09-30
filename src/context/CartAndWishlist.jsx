@@ -1,26 +1,35 @@
-import React, { useEffect } from 'react'
-import { createContext, useState } from 'react'
+import React, { useEffect } from "react";
+import { createContext, useState } from "react";
 
-export const CartAndWishlistContext = createContext() //create context
+export const CartAndWishlistContext = createContext(); //create context
 
+// This "CartAndWishlistProvider" manages cart and wishlist state -
 export function CartAndWishlistProvider({ children }) {
-    const hasCartValue = JSON.parse(localStorage.getItem("cart"))
-    const hasWishlistValue = JSON.parse(localStorage.getItem("wishlist"))
-    const [cart, setCart] = useState(hasCartValue ? hasCartValue : [])
-    const [wishlist, setWishlist] = useState(hasWishlistValue ? hasWishlistValue : [])
+  // fetching cart and wishlist data from local Storage
+  const hasCartValue = JSON.parse(localStorage.getItem("cart"));
+  const hasWishlistValue = JSON.parse(localStorage.getItem("wishlist"));
 
-    useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart))
-    }, [cart])
+  // setting up the states :
+  const [cart, setCart] = useState(hasCartValue ? hasCartValue : []);
+  const [wishlist, setWishlist] = useState(
+    hasWishlistValue ? hasWishlistValue : []
+  );
 
-    useEffect(() => {
-        localStorage.setItem("wishlist", JSON.stringify(wishlist))
-    }, [wishlist])
+  // Update local storage when the cart or wishlist state changes.
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
-    return (
-        <CartAndWishlistContext.Provider value={{ cart, wishlist, setCart, setWishlist }}>
-            {children}
-        </CartAndWishlistContext.Provider>
-    )
-};
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
 
+  // Provide cart and wishlist state and update functions to the children components.
+  return (
+    <CartAndWishlistContext.Provider
+      value={{ cart, wishlist, setCart, setWishlist }}
+    >
+      {children}
+    </CartAndWishlistContext.Provider>
+  );
+}

@@ -6,12 +6,12 @@
 export const categories = [
   {
     id: "1",
-    categoryName: "women's clothing",
+    categoryName: "women's",
     img: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
   },
   {
     id: "2",
-    categoryName: "men's clothing",
+    categoryName: "men's",
     img: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
   },
   {

@@ -7,6 +7,7 @@ import Popup from '../../components/Popup';
 
 const ProductsPage = () => {
   const { id } = useParams();
+
   const [allproducts, setAllproducts] = useState([])
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [showPopUp, setShowPopUp] = useState({
@@ -23,12 +24,14 @@ const ProductsPage = () => {
       .then((res) => res.json())
       .then((data) => {
         let newArray = data.products
+        console.log("newArray", newArray);
         setAllproducts(newArray)
-        if (id != "0") {
-          newArray = newArray.filter((product) => product.categoryId === id)
-          setFilterBy({ ...filterBy, category: id })
-        }
-        setFilteredProduct(newArray)
+        // if (id !== "0") {
+        //   newArray = newArray.filter((product) => product.categoryId === id)
+        //   setFilterBy({ ...filterBy, category: id })
+        // }
+        // setFilteredProduct(newArray)
+        setFilteredProduct(allproducts)
       })
       .catch((e) => console.log("Error is ", e))
   }, [])
@@ -56,7 +59,7 @@ const ProductsPage = () => {
     let { category, rating } = filterBy
     category = Number(category)
     rating = Number(rating)
-    const newArray = allproducts.filter((product) => category && rating ? (product.categoryId == category && product.rating.rate >= rating) : category ? product.categoryId == category : rating ? product.rating.rate >= rating : product)
+    const newArray = allproducts.filter((product) => category && rating ? (product.categoryId === category && product.rating.rate >= rating) : category ? product.categoryId == category : rating ? product.rating.rate >= rating : product)
     if (filterBy.sortByPrice) {
       newArray.sort((firstEle, secEle) => filterBy.sortByPrice ? secEle.price - firstEle.price : firstEle.price - secEle.price)
     }

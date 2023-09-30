@@ -1,24 +1,25 @@
-import React, { useEffect } from 'react'
-import { createContext, useState } from 'react'
+import React, { useEffect, createContext, useState } from "react";
 
-export const AuthContext = createContext() //create context
+export const AuthContext = createContext(); //create context
 
 export function AuthProvider({ children }) {
-    const [user, setUser] = useState({})
+  // State to hold user information
+  const [user, setUser] = useState({});
 
-    useEffect(() => {
-        console.log(user)
-    }, [user])
+  //every time user render, it will console.log(user);
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
-    useEffect(() => {
-        const userExist = JSON.parse(localStorage.getItem("user"))
-        userExist && setUser(userExist)
-    }, [])
+  // Load user information from local storage
+  useEffect(() => {
+    const userExist = JSON.parse(localStorage.getItem("user"));
+    userExist && setUser(userExist);
+  }, []);
 
-    return (
-        <AuthContext.Provider value={{ user, setUser }}>
-            {children}
-        </AuthContext.Provider>
-    )
-};
-
+  return (
+    <AuthContext.Provider value={{ user, setUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
