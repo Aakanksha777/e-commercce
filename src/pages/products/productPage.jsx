@@ -6,8 +6,6 @@ import "./productPage.css";
 
 const ProductsPage = () => {
   const { id } = useParams();
-  console.log("paramsId", id);
-
   const [allproducts, setAllproducts] = useState([]);
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [filterBy, setFilterBy] = useState({
@@ -23,7 +21,7 @@ const ProductsPage = () => {
         const allProducts = data.products;
         setAllproducts(allProducts)
         const categorywiseArray = allProducts.filter(
-          (ele) => ele.categoryId === id
+          (ele) => id != "0" ? ele.categoryId == id : ele.id
         );
         setFilteredProduct(categorywiseArray);
         setFilterBy({ ...filterBy, category: id });
@@ -35,24 +33,26 @@ const ProductsPage = () => {
     let { category, rating } = filterBy;
     category = category;
     rating = rating;
-
-    const newArray = allproducts.filter((product) =>
-      category && rating
-        ? product.categoryId == category && product.rating.rate >= rating
-        : category
-          ? product.categoryId == category
-          : rating
-            ? product.rating.rate >= rating
-            : product
-    );
+    const newArray = allproducts.filter((product) => {
+      if (category && rating) {
+        return product.categoryId == category && product.rating.rate >= rating
+      } else if (rating) {
+        return product.rating.rate >= rating
+      } else if (category != "0") {
+        return product.categoryId == category
+      } else {
+        return product.id
+      }
+    });
 
     if (filterBy.sortByPrice) {
       newArray.sort((firstEle, secEle) =>
-        filterBy.sortByPrice
+        filterBy.sortByPrice == "1"
           ? secEle.price - firstEle.price
           : firstEle.price - secEle.price
       );
     }
+    console.log("newArray", newArray);
     setFilteredProduct([...newArray]);
   };
 

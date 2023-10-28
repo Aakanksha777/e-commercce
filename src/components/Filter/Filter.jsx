@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./Filter.css";
 
 const Filter = ({
-  filterItemsByCategory,
   clearFilter,
   filterBy,
   handleInput,
@@ -79,8 +78,8 @@ const Filter = ({
           name="sortByPrice"
           id="lowtohigh"
           onChange={handleInput}
-          value={0}
-          checked={filterBy.sortByPrice === 0}
+          value={"0"}
+          checked={filterBy.sortByPrice === "0"}
         />
         <label htmlFor="lowtohigh">Price-Low to high</label>
       </div>
@@ -90,8 +89,8 @@ const Filter = ({
           name="sortByPrice"
           id="hightolow"
           onChange={handleInput}
-          value={1}
-          checked={filterBy.sortByPrice === 1}
+          value={"1"}
+          checked={filterBy.sortByPrice === "1"}
         />
         <label htmlFor="hightolow">Price-High to low</label>
       </div>

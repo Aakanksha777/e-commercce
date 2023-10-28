@@ -1,40 +1,39 @@
-import ethnic01 from '../../Assets/ethnic01.webp';
-import ethnic02 from '../../Assets/ethnic02.webp';
-import ethnic03 from '../../Assets/ethnic03.jpg';
-import ethnic04 from '../../Assets/ethnic04.webp';
-import ethnic05 from '../../Assets/ethnic05.webp';
-import wfh01 from '../../Assets/wfh01.webp';
-import wfh02 from '../../Assets/wfh02.webp';
-import wfh03 from '../../Assets/wfh03.webp';
-import wfh04 from '../../Assets/wfh04.webp';
-import wfh05 from '../../Assets/wfh05.webp';
-import wfh06 from '../../Assets/wfh06.webp';
-import Western01 from '../../Assets/western01.webp';
-import Western02 from '../../Assets/western02.webp';
-import sports01 from '../../Assets/sports01.webp'
-import sports02 from '../../Assets/sports02.webp'
-import sports03 from '../../Assets/sports03.webp'
-import sports04 from '../../Assets/sports04.webp'
-import sports05 from '../../Assets/sports05.webp'
-import sports06 from '../../Assets/sports06.webp'
-import kids01 from '../../Assets/kids01.webp';
-import kids02 from '../../Assets/kids02.webp';
-import kids03 from '../../Assets/kids03.webp';
-import kids04 from '../../Assets/kids04.webp';
-import kids05 from '../../Assets/kids05.webp';
-import kids06 from '../../Assets/kids06.webp';
-import kids07 from '../../Assets/kids07.webp';
-import women_footwear01 from '../../Assets/women_footwear01.webp'
-import women_footwear02 from '../../Assets/women_footwear02.webp'
-import women_footwear03 from '../../Assets/women_footwear03.webp'
-import men_footwear01 from '../../Assets/men_footwear01.webp'
-import men_footwear02 from '../../Assets/men_footwear02.webp'
-import bag01 from "../../Assets/bag01.webp"
-import bag02 from "../../Assets/bag02.webp"
-import bag03 from "../../Assets/bag03.webp"
+import ethnic01 from "../../Assets/ethnic01.webp";
+import ethnic02 from "../../Assets/ethnic02.webp";
+import ethnic03 from "../../Assets/ethnic03.jpg";
+import ethnic04 from "../../Assets/ethnic04.webp";
+import ethnic05 from "../../Assets/ethnic05.webp";
+import wfh01 from "../../Assets/wfh01.webp";
+import wfh02 from "../../Assets/wfh02.webp";
+import wfh03 from "../../Assets/wfh03.webp";
+import wfh04 from "../../Assets/wfh04.webp";
+import wfh05 from "../../Assets/wfh05.webp";
+import wfh06 from "../../Assets/wfh06.webp";
+import Western01 from "../../Assets/western01.webp";
+import Western02 from "../../Assets/western02.webp";
+import sports01 from "../../Assets/sports01.webp";
+import sports02 from "../../Assets/sports02.webp";
+import sports03 from "../../Assets/sports03.webp";
+import sports04 from "../../Assets/sports04.webp";
+import sports05 from "../../Assets/sports05.webp";
+import sports06 from "../../Assets/sports06.webp";
+import kids01 from "../../Assets/kids01.webp";
+import kids02 from "../../Assets/kids02.webp";
+import kids03 from "../../Assets/kids03.webp";
+import kids04 from "../../Assets/kids04.webp";
+import kids05 from "../../Assets/kids05.webp";
+import kids06 from "../../Assets/kids06.webp";
+import kids07 from "../../Assets/kids07.webp";
+import women_footwear01 from "../../Assets/women_footwear01.webp";
+import women_footwear02 from "../../Assets/women_footwear02.webp";
+import women_footwear03 from "../../Assets/women_footwear03.webp";
+import men_footwear01 from "../../Assets/men_footwear01.webp";
+import men_footwear02 from "../../Assets/men_footwear02.webp";
+import bag01 from "../../Assets/bag01.webp";
+import bag02 from "../../Assets/bag02.webp";
+import bag03 from "../../Assets/bag03.webp";
 
 export const products = [
-
   // MEN 4
   // {
   //   id: "1",
@@ -255,15 +254,16 @@ export const products = [
   //     count: 485,
   //   },
   // },
-  // new dataset 
-  
-  // ETHNIC 01 : 
+  // new dataset
+
+  // ETHNIC 01 :
   {
     id: "21",
     title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-    price: 1419.00,
+    price: 1419.0,
     mrp: 5499,
-    description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
     categoryId: "1",
     image: ethnic01,
     rating: {
@@ -274,448 +274,478 @@ export const products = [
   {
     id: "22",
     title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-    price: 1419.00,
+    price: 463.0,
     mrp: 5499,
-    description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
     categoryId: "1",
     image: ethnic02,
     rating: {
       rate: 4.8,
       count: 208,
-    }
+    },
   },
   {
     id: "23",
     title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-    price: 1419.00,
+    price: 143.0,
     mrp: 5499,
-    description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
     categoryId: "1",
     image: ethnic03,
     rating: {
       rate: 4.8,
       count: 208,
-    }
+    },
   },
   {
     id: "24",
     title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-    price: 1419.00,
+    price: 757.0,
     mrp: 5499,
-    description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
     categoryId: "1",
     image: ethnic04,
     rating: {
       rate: 4.8,
       count: 208,
-    }
+    },
   },
   {
     id: "25",
     title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-    price: 1419.00,
+    price: 319.0,
     mrp: 5499,
-    description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
     categoryId: "1",
     image: ethnic05,
     rating: {
       rate: 4.8,
       count: 208,
-    }
+    },
   },
 
-  // WFH 02 : 
+  // WFH 02 :
   {
     id: "26",
     title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-    price: 1419.00,
+    price: 919.0,
     mrp: 5499,
-    description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
     categoryId: "2",
     image: wfh01,
     rating: {
       rate: 4.8,
       count: 208,
-    }
+    },
   },
   {
     id: "27",
     title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-    price: 1419.00,
+    price: 1219.0,
     mrp: 5499,
-    description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
     categoryId: "2",
     image: wfh02,
     rating: {
       rate: 4.8,
       count: 208,
-    }
+    },
   },
   {
     id: "28",
     title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-    price: 1419.00,
+    price: 3522.0,
     mrp: 5499,
-    description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
     categoryId: "2",
     image: wfh03,
     rating: {
       rate: 4.8,
       count: 208,
-    }
+    },
   },
   {
     id: "29",
     title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-    price: 1419.00,
+    price: 1419.0,
     mrp: 5499,
-    description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
     categoryId: "2",
     image: wfh04,
     rating: {
       rate: 4.8,
       count: 208,
-    }
+    },
   },
   {
     id: "30",
     title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-    price: 1419.00,
+    price: 1419.0,
     mrp: 5499,
-    description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
     categoryId: "2",
     image: wfh05,
     rating: {
       rate: 4.8,
       count: 208,
-    }
+    },
   },
   {
     id: "31",
     title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-    price: 1419.00,
+    price: 1419.0,
     mrp: 5499,
-    description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
     categoryId: "2",
     image: wfh06,
     rating: {
       rate: 4.8,
       count: 208,
-    }
+    },
   },
 
-// WESTERNWEAR 03
+  // WESTERNWEAR 03
 
-{
-  id: "32",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "3",
-  image: Western01,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "33",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "3",
-  image: Western02,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
+  {
+    id: "32",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "3",
+    image: Western01,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "33",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "3",
+    image: Western02,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
 
-// SPORTSWEAR 04 
-{
-  id: "34",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "4",
-  image: sports01,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "35",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "4",
-  image: sports02,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "36",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "4",
-  image: sports03,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "37",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "4",
-  image: sports04,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "38",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "4",
-  image: sports05,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "39",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "4",
-  image: sports06,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
+  // SPORTSWEAR 04
+  {
+    id: "34",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "4",
+    image: sports01,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "35",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "4",
+    image: sports02,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "36",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "4",
+    image: sports03,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "37",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "4",
+    image: sports04,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "38",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "4",
+    image: sports05,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "39",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "4",
+    image: sports06,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
 
-// KIDS 05 :
-{
-  id: "40",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "5",
-  image: kids01,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "41",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "5",
-  image: kids02,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "42",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "5",
-  image: kids03,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "43",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "5",
-  image: kids04,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "44",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "5",
-  image: kids05,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "45",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "5",
-  image: kids06,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "46",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "5",
-  image: kids07,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
+  // KIDS 05 :
+  {
+    id: "40",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "5",
+    image: kids01,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "41",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "5",
+    image: kids02,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "42",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "5",
+    image: kids03,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "43",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "5",
+    image: kids04,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "44",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "5",
+    image: kids05,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "45",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "5",
+    image: kids06,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "46",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "5",
+    image: kids07,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
 
-// WOMEN_FOOTWEAR 06 : 
-{
-  id: "47",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "6",
-  image: women_footwear01,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "48",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "6",
-  image: women_footwear02,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "49",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "6",
-  image: women_footwear03,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
+  // WOMEN_FOOTWEAR 06 :
+  {
+    id: "47",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "6",
+    image: women_footwear01,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "48",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "6",
+    image: women_footwear02,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "49",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "6",
+    image: women_footwear03,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
 
-// MEN_FOOTWEAR 07 : 
-{
-  id: "50",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "7",
-  image: men_footwear01,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "51",
-  title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  price: 1419.00,
-  mrp: 5499,
-  description: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
-  categoryId: "7",
-  image: men_footwear02,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
+  // MEN_FOOTWEAR 07 :
+  {
+    id: "50",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "7",
+    image: men_footwear01,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "51",
+    title: "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    price: 1419.0,
+    mrp: 5499,
+    description:
+      "Khushal K Ethnic Motifs Embroidered Sequined Kurta with Palazzos",
+    categoryId: "7",
+    image: men_footwear02,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
 
-// BAGS 08 : 
-{
-  id: "52",
-  title: "Elegant Leather Tote Bag",
-  price: 1419.00,
-  mrp: 5499,
-  description: "A stylish and elegant leather tote bag for everyday use.",
-  categoryId: "8",
-  category : "BAGS",
-  image: bag01,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "53",
-  title: "Elegant Leather Tote Bag",
-  price: 1419.00,
-  mrp: 5499,
-  description: "A stylish and elegant leather tote bag for everyday use.",
-  categoryId: "8",
-  category : "BAGS",
-  image: bag02,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
-{
-  id: "54",
-  title: "Elegant Leather Tote Bag",
-  price: 1419.00,
-  mrp: 5499,
-  description: "A stylish and elegant leather tote bag for everyday use.",
-  categoryId: "8",
-  category : "BAGS",
-  image: bag03,
-  rating: {
-    rate: 4.8,
-    count: 208,
-  }
-},
+  // BAGS 08 :
+  {
+    id: "52",
+    title: "Elegant Leather Tote Bag",
+    price: 1419.0,
+    mrp: 5499,
+    description: "A stylish and elegant leather tote bag for everyday use.",
+    categoryId: "8",
+    category: "BAGS",
+    image: bag01,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "53",
+    title: "Elegant Leather Tote Bag",
+    price: 1419.0,
+    mrp: 5499,
+    description: "A stylish and elegant leather tote bag for everyday use.",
+    categoryId: "8",
+    category: "BAGS",
+    image: bag02,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
+  {
+    id: "54",
+    title: "Elegant Leather Tote Bag",
+    price: 1419.0,
+    mrp: 5499,
+    description: "A stylish and elegant leather tote bag for everyday use.",
+    categoryId: "8",
+    category: "BAGS",
+    image: bag03,
+    rating: {
+      rate: 4.8,
+      count: 208,
+    },
+  },
 ];
