@@ -8,7 +8,7 @@ const ProductsPage = () => {
   const { id } = useParams();
   console.log("paramsId", id);
 
-  // const [allproducts, setAllproducts] = useState([]);
+  const [allproducts, setAllproducts] = useState([]);
   const [filteredProduct, setFilteredProduct] = useState([]);
   const [filterBy, setFilterBy] = useState({
     rating: 0,
@@ -20,32 +20,32 @@ const ProductsPage = () => {
     fetch(`/api/products/`)
       .then((res) => res.json())
       .then((data) => {
-        let allProducts = data.products;
-
-        setFilteredProduct(allProducts);
+        const allProducts = data.products;
+        setAllproducts(allProducts)
         const categorywiseArray = allProducts.filter(
           (ele) => ele.categoryId === id
         );
-        console.log("categorywiseArray", categorywiseArray);
         setFilteredProduct(categorywiseArray);
+        setFilterBy({ ...filterBy, category: id });
       })
       .catch((e) => console.log("Error is ", e));
   }, []);
 
   const filterItemsByCategory = () => {
     let { category, rating } = filterBy;
-    category = Number(category);
-    rating = Number(rating);
-    // 2-10-2023 => change allproducts to filteredProduct
-    const newArray = filteredProduct.filter((product) =>
+    category = category;
+    rating = rating;
+
+    const newArray = allproducts.filter((product) =>
       category && rating
-        ? product.categoryId === category && product.rating.rate >= rating
+        ? product.categoryId == category && product.rating.rate >= rating
         : category
-        ? product.categoryId === category
-        : rating
-        ? product.rating.rate >= rating
-        : product
+          ? product.categoryId == category
+          : rating
+            ? product.rating.rate >= rating
+            : product
     );
+
     if (filterBy.sortByPrice) {
       newArray.sort((firstEle, secEle) =>
         filterBy.sortByPrice
@@ -55,6 +55,10 @@ const ProductsPage = () => {
     }
     setFilteredProduct([...newArray]);
   };
+
+  useEffect(() => {
+    filterItemsByCategory()
+  }, [filterBy.category, filterBy.rating, filterBy.sortByPrice])
 
   const handleInput = (e) => {
     setFilterBy({ ...filterBy, [e.target.name]: e.target.value });
