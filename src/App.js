@@ -2,15 +2,16 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 // components
-import ProductDetails from "./components/ProductDetails";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import RequiresAuth from "./components/RequiresAuth";
 import Navbar from "./components/Navbar/Navbar";
+// import { Toaster } from "react-hot-toast";
 
 // pages 
-import Homepage from "./pages/home";
-import ProductsPage from "./pages/products";
+import Homepage from "./pages/home/homePage";
+import ProductsPage from "./pages/products/productPage";
 import CartPage from "./pages/cart";
 import WishListPage from "./pages/wishlist/wishlist";
 import AddressManager from "./pages/addressManager";
@@ -19,6 +20,7 @@ import Checkout from "./pages/checkout";
 //contexts
 import { AuthProvider } from "./context/AuthContext";
 import { CartAndWishlistProvider } from "./context/CartAndWishlist";
+
 
 function App() {
   return (
@@ -42,6 +44,43 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Routes>
+
+
+            {/* <Routes>
+        <Route path="/mockman" element={<Mockman />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/products" element={<Product />} />
+        <Route path="/product/:productId" element={<CurrentProduct />} />
+
+        <Route
+          path="/wishlist"
+          element={
+            <RequireAuth>
+              <WishList />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <RequireAuth>
+              <Cart />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <CheckOut />
+            </RequireAuth>
+          }
+        />
+        <Route path="/user" element={<User />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="*" element={<Error />} />
+      </Routes> */}
           </div>
         </div>
        </CartAndWishlistProvider>

@@ -1,12 +1,11 @@
 .filter-container {
-    max-width: 30%;
     width: 30%;
     text-align: left;
     position: sticky;
-    overflow: auto;
-    max-height: 80vh;
+    max-height: 90vh;
     top: 0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow-y: scroll;
 }
 
 .filter-headings,

@@ -1,28 +1,53 @@
-/**
- * Category Database can be added here.
- * You can add category of your wish with different attributes
- * */
-
+import category01 from '../../Assets/category-1.webp'
+import category02 from '../../Assets/category-2.webp'
+import category03 from '../../Assets/category-3.webp'
+import category04 from '../../Assets/category-4.webp'
+import category05 from '../../Assets/category-5.webp'
+import category06 from '../../Assets/category-6.jpg'
+import category07 from '../../Assets/category-7.webp'
+import category08 from '../../Assets/category-8.webp'
+// import category09 from '../../Assets/category-9.webp'
+// import category10 from '../../Assets/category-10.webp'
 export const categories = [
   {
     id: "1",
-    categoryName: "women's",
-    img: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
+    categoryName: "ethnic",
+    img: category01,
   },
   {
     id: "2",
-    categoryName: "men's",
-    img: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
+    categoryName: "wfh",
+    img: category02,
   },
   {
     id: "3",
-    categoryName: "jewelery",
-    img: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
+    categoryName: "western",
+    img: category03,
   },
 
   {
     id: "4",
-    categoryName: "electronics",
-    img: "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
+    categoryName: "sports",
+    img: category04,
+  },
+  {
+    id: "5",
+    categoryName: "kids",
+    img: category05,
+  },
+  {
+    id: "6",
+    categoryName: "women_footwear",
+    img: category06,
+  },
+  {
+    id: "7",
+    categoryName: "men_footwear",
+    img: category07,
+  },
+  {
+    id: "8",
+    categoryName: "bags",
+    img: category08,
   },
 ];
