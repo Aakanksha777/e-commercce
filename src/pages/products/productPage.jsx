@@ -52,7 +52,6 @@ const ProductsPage = () => {
           : firstEle.price - secEle.price
       );
     }
-    console.log("newArray", newArray);
     setFilteredProduct([...newArray]);
   };
 

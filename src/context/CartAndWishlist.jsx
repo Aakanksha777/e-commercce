@@ -6,8 +6,8 @@ export const CartAndWishlistContext = createContext(); //create context
 // This "CartAndWishlistProvider" manages cart and wishlist state -
 export function CartAndWishlistProvider({ children }) {
   // fetching cart and wishlist data from local Storage
-  const hasCartValue = JSON.parse(localStorage.getItem("cart"));
-  const hasWishlistValue = JSON.parse(localStorage.getItem("wishlist"));
+  const hasCartValue = JSON.parse(localStorage.getItem("cart") || []);
+  const hasWishlistValue = JSON.parse(localStorage.getItem("wishlist") || []);
 
   // setting up the states :
   const [cart, setCart] = useState(hasCartValue ? hasCartValue : []);
